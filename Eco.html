@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KE · Ecosystem Matching</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/Eco.css">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+  <div class="loader-logo-wrap">
+    <img src="images/logo_KE.png" alt="KE Logo" style="width:55px;opacity:0.7;margin-bottom:8px">
+  </div>
+  <div class="loader-spinner"></div>
+  <div class="loader-text">Loading Ecosystem Matching...</div>
+</div>
+
+<div id="app">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/logo_KE.png" alt="Khmer Enterprise Logo">
+      <div class="sidebar-logo-text">
+        <div class="ke">Khmer Enterprise</div>
+        <div class="sub">Entrepreneurship Ecosystem<br>Intelligence Platform</div>
+      </div>
+      <button class="sidebar-close-btn" onclick="toggleMobileSidebar()" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Systems</div>
+      <div class="nav-item" onclick="window.location.href='SNA.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </span>
+        Social Network Analysis
+      </div>
+      <div class="nav-item" onclick="window.location.href='GEI.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
+        GEI
+      </div>
+      <div class="nav-item active" onclick="window.location.href='Eco.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        Ecosystem Matching
+      </div>
+      <div class="nav-item" onclick="window.location.href='chatbot.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        AI Chatbot
+      </div>
+      <div class="nav-section">Account</div>
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </span>
+        Log Out
+      </div>
+      <div class="nav-section">Admin Portal</div>
+      <div class="nav-item" onclick="window.location.href='admin.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </span>
+        Admin
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <p>© 2026 All rights reserved <br>◉ Khmer Enterprise </p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileSidebar()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="topbar-title">Ecosystem <span>Matching</span></div>
+
+      <nav class="top-nav" id="topNav">
+        <button class="top-nav-item active" onclick="showPage('input')" data-page="input">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Business Profile
+        </button>
+        <button class="top-nav-item" onclick="showPage('results')" data-page="results" id="results-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          My Matches
+        </button>
+        <button class="top-nav-item" onclick="showPage('network')" data-page="network" id="network-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Support Network
+        </button>
+        <button class="top-nav-item" onclick="showPage('esos')" data-page="esos" id="esos-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          ESO Directory
+        </button>
+        <button class="top-nav-item" onclick="showPage('action')" data-page="action" id="action-tab">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Action Plan
+        </button>
+      </nav>
+
+      <div class="topbar-right">
+        <span class="badge-source">KE · Ecosystem 2024</span>
+        <span class="badge-year" style="display:flex;align-items:center;gap:5px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          2024
+        </span>
+      </div>
+    </div>
+
+    <!-- ══════ PAGE: INPUT ══════ -->
+    <div class="page active fade-in" id="page-input">
+      <div class="section-title"><span>Business Profile</span> Input</div>
+      <div class="section-sub">Tell us about your business to find the best ecosystem matches and support resources</div>
+
+      <div class="form-grid">
+        <!-- LEFT COLUMN -->
+        <div class="form-col">
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot blue"></div>Basic Information</div>
+            <div class="form-group">
+              <label class="form-label">Your Name / Business Name <span class="req">*</span></label>
+              <input type="text" class="form-input" id="f-name" placeholder="e.g. Sophea Chan / Chan Trading">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">City <span class="req">*</span></label>
+                <select class="form-select" id="f-city">
+                  <option value="">Select city...</option>
+                  <option value="Phnom Penh">Phnom Penh</option>
+                  <option value="Siem Reap">Siem Reap</option>
+                  <option value="Battambang">Battambang</option>
+                  <option value="Other">Other province</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select class="form-select" id="f-gender">
+                  <option value="">Prefer not to say</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business Sector <span class="req">*</span></label>
+              <select class="form-select" id="f-sector">
+                <option value="">Select sector...</option>
+                <option value="Agriculture & Food">Agriculture &amp; Food</option>
+                <option value="Technology & Digital">Technology &amp; Digital</option>
+                <option value="Tourism & Hospitality">Tourism &amp; Hospitality</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Retail & Trade">Retail &amp; Trade</option>
+                <option value="Handicraft & Creative">Handicraft &amp; Creative</option>
+                <option value="Education & Training">Education &amp; Training</option>
+                <option value="Health & Wellness">Health &amp; Wellness</option>
+                <option value="Finance & Fintech">Finance &amp; Fintech</option>
+                <option value="Services">Services</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business Type <span class="req">*</span></label>
+              <div class="radio-group">
+                <label class="radio-card">
+                  <input type="radio" name="btype" value="Traditional business"> <div class="radio-inner"><span class="radio-title">Traditional Business</span><span class="radio-desc">Conventional products/services, established market</span></div>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="btype" value="Social business"> <div class="radio-inner"><span class="radio-title">Social Business</span><span class="radio-desc">Social impact driven, community benefit</span></div>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="btype" value="Innovative venture"> <div class="radio-inner"><span class="radio-title">Innovative Venture</span><span class="radio-desc">Tech-driven, disruptive, scalable model</span></div>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="btype" value="Livelihood sustaining"> <div class="radio-inner"><span class="radio-title">Livelihood Sustaining</span><span class="radio-desc">Income generation, household-level business</span></div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot green"></div>Business Stage &amp; Status</div>
+            <div class="form-group">
+              <label class="form-label">Current Business Stage <span class="req">*</span></label>
+              <select class="form-select" id="f-stage">
+                <option value="">Select stage...</option>
+                <option value="Ideation">Ideation &amp; Prototype</option>
+                <option value="Early">Early &amp; Operational</option>
+                <option value="Scaling">Scaling Stage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business Registration</label>
+              <select class="form-select" id="f-registered">
+                <option value="">Select...</option>
+                <option value="Registered">Registered</option>
+                <option value="Not Registered">Not Registered</option>
+                <option value="In Process">In Process</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Employees</label>
+              <select class="form-select" id="f-employees">
+                <option value="solo">Solo / Just me</option>
+                <option value="micro">Micro (2–5)</option>
+                <option value="small">Small (6–20)</option>
+                <option value="medium">Medium (21–50)</option>
+                <option value="large">Large (50+)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="form-col">
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot yellow"></div>Support Needs</div>
+            <div class="section-sub" style="margin-bottom:12px">Select all support areas your business needs (tick all that apply)</div>
+            <div class="checkbox-grid" id="needs-checkboxes">
+              <label class="cb-card"><input type="checkbox" value="Business planning and Strategy"><span>📋 Business Planning &amp; Strategy</span></label>
+              <label class="cb-card"><input type="checkbox" value="Financial management and accounting"><span>💰 Financial Management</span></label>
+              <label class="cb-card"><input type="checkbox" value="Networking and partnerships"><span>🤝 Networking &amp; Partnerships</span></label>
+              <label class="cb-card"><input type="checkbox" value="Marketing and branding"><span>📢 Marketing &amp; Branding</span></label>
+              <label class="cb-card"><input type="checkbox" value="Digital literacy"><span>💻 Digital Literacy</span></label>
+              <label class="cb-card"><input type="checkbox" value="Market access"><span>🌍 Market Access</span></label>
+              <label class="cb-card"><input type="checkbox" value="Getting investment ready"><span>📈 Investment Readiness</span></label>
+              <label class="cb-card"><input type="checkbox" value="Entrepreneurial skill development and training support"><span>🎓 Training &amp; Skills</span></label>
+              <label class="cb-card"><input type="checkbox" value="Human resources support"><span>👥 Human Resources</span></label>
+              <label class="cb-card"><input type="checkbox" value="Innovation and R&D"><span>🔬 Innovation &amp; R&amp;D</span></label>
+              <label class="cb-card"><input type="checkbox" value="Access to funding"><span>💳 Access to Funding</span></label>
+              <label class="cb-card"><input type="checkbox" value="Legal and compliance"><span>⚖️ Legal &amp; Compliance</span></label>
+              <label class="cb-card"><input type="checkbox" value="Technical and operational support"><span>🔧 Technical &amp; Operations</span></label>
+              <label class="cb-card"><input type="checkbox" value="Logistics and supply chain management"><span>🚚 Logistics &amp; Supply Chain</span></label>
+              <label class="cb-card"><input type="checkbox" value="Access to infrastructure and resources"><span>🏗️ Infrastructure &amp; Resources</span></label>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot blue"></div>Current Situation</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Received ESO Support Before?</label>
+                <select class="form-select" id="f-eso">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Have a Mentor?</label>
+                <select class="form-select" id="f-mentor">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Received External Funding?</label>
+              <select class="form-select" id="f-funded">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Brief Business Description (optional)</label>
+              <textarea class="form-textarea" id="f-desc" placeholder="Briefly describe what your business does and your main goals..."></textarea>
+            </div>
+          </div>
+
+          <button class="submit-btn" onclick="runMatching()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Find My Ecosystem Matches
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ PAGE: RESULTS ══════ -->
+    <div class="page fade-in" id="page-results">
+      <div class="section-title"><span>Your Ecosystem</span> Matches</div>
+      <div class="section-sub" id="results-sub">Based on your business profile, here are your personalized ecosystem recommendations</div>
+
+      <div class="match-score-banner" id="match-banner">
+        <div class="match-score-left">
+          <div class="match-score-label">Ecosystem Match Score</div>
+          <div class="match-score-value" id="match-score-val">—</div>
+        </div>
+        <div class="match-score-details" id="match-score-details"></div>
+      </div>
+
+      <div class="grid-3 fade-in stagger-1">
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot green"></div>Business Profile Summary</div>
+          <div class="profile-summary" id="profile-summary"></div>
+        </div>
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot blue"></div>Similar Entrepreneurs in Your City</div>
+          <div class="insight-list" id="similar-stats"></div>
+        </div>
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot yellow"></div>Top Support Gaps in Your Area</div>
+          <canvas id="gapChart" height="160"></canvas>
+        </div>
+      </div>
+
+      <div class="grid-2 fade-in stagger-2">
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot green"></div>Recommended Support Areas</div>
+          <div class="support-tags" id="support-tags"></div>
+          <canvas id="supportMatchChart" height="140" style="margin-top:10px"></canvas>
+        </div>
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot blue"></div>Funding Landscape for Your Profile</div>
+          <div class="insight-list" id="funding-insights"></div>
+          <canvas id="fundingChart" height="120" style="margin-top:10px"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ PAGE: NETWORK ══════ -->
+    <div class="page fade-in" id="page-network">
+      <div class="section-title"><span>Support</span> Network</div>
+      <div class="section-sub">Your personalized network map — connections, peer groups, and support channels</div>
+
+      <div class="kpi-grid fade-in stagger-1">
+        <div class="kpi-card">
+          <div class="kpi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+          <div class="kpi-label">Peer Network</div>
+          <div class="kpi-value blue" id="net-peers">—</div>
+          <div class="kpi-sub">Similar entrepreneurs</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="kpi-label">ESO Connections</div>
+          <div class="kpi-value green" id="net-esos">—</div>
+          <div class="kpi-sub">Support organizations</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--yellow-dark)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="kpi-label">Mentor Matches</div>
+          <div class="kpi-value" style="color:var(--yellow-dark)" id="net-mentors">—</div>
+          <div class="kpi-sub">Available mentors</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c87000" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="kpi-label">Funding Sources</div>
+          <div class="kpi-value orange" id="net-funders">—</div>
+          <div class="kpi-sub">Potential investors</div>
+        </div>
+      </div>
+
+      <div class="grid-2 fade-in stagger-2">
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot blue"></div>Network Visualization</div>
+          <div class="network-canvas-wrap">
+            <canvas id="networkViz" width="400" height="320"></canvas>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot green"></div>Peer Exchange in Your City</div>
+          <canvas id="peerChart" height="160"></canvas>
+          <div class="insight-list" id="peer-insights" style="margin-top:10px"></div>
+        </div>
+      </div>
+
+      <div class="glass-card full-width fade-in stagger-3">
+        <div class="card-title"><div class="card-title-dot yellow"></div>Recommended Network Connections</div>
+        <div class="network-cards" id="network-connections"></div>
+      </div>
+    </div>
+
+    <!-- ══════ PAGE: ESOs ══════ -->
+    <div class="page fade-in" id="page-esos">
+      <div class="section-title"><span>ESO</span> Directory</div>
+      <div class="section-sub">Entrepreneurship Support Organizations matched to your business needs</div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <div class="filter-label">Support Type</div>
+          <select class="filter-select" id="eso-support" onchange="filterESOs()">
+            <option value="">All Support Types</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">City</div>
+          <select class="filter-select" id="eso-city" onchange="filterESOs()">
+            <option value="">All Cities</option>
+            <option value="Phnom Penh">Phnom Penh</option>
+            <option value="Siem Reap">Siem Reap</option>
+            <option value="Battambang">Battambang</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">&nbsp;</div>
+          <button class="filter-btn" onclick="resetESOFilters()">↺ Reset</button>
+        </div>
+      </div>
+
+      <div class="grid-2 fade-in stagger-1">
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot green"></div>ESO Support Coverage</div>
+          <canvas id="esoCoverageChart" height="160"></canvas>
+        </div>
+        <div class="glass-card">
+          <div class="card-title"><div class="card-title-dot blue"></div>Your Top Matched ESOs</div>
+          <div class="eso-match-list" id="eso-match-list"></div>
+        </div>
+      </div>
+
+      <div class="glass-card full-width fade-in stagger-2">
+        <div class="card-title"><div class="card-title-dot blue"></div>ESO Support by Area — <span id="eso-count">All</span> organizations</div>
+        <div class="table-container" style="max-height:420px;overflow-y:auto">
+          <table class="data-table" id="eso-table">
+            <thead>
+              <tr>
+                <th>#</th><th>Support Area</th><th>Phnom Penh</th><th>Siem Reap</th><th>Battambang</th><th>Total Reach</th><th>Match</th>
+              </tr>
+            </thead>
+            <tbody id="eso-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ PAGE: ACTION PLAN ══════ -->
+    <div class="page fade-in" id="page-action">
+      <div class="section-title"><span>Your Action</span> Plan</div>
+      <div class="section-sub">Step-by-step guide to scale and grow your business in the Cambodian ecosystem</div>
+
+      <div class="action-hero fade-in" id="action-hero">
+        <div class="action-hero-text">
+          <div class="action-hero-label">Your Business Journey</div>
+          <div class="action-hero-title" id="action-title">Complete your profile to get your personalized action plan</div>
+          <div class="action-hero-sub" id="action-sub">Submit your business profile in the Business Profile tab to unlock tailored recommendations</div>
+        </div>
+        <div class="action-hero-icon">🚀</div>
+      </div>
+
+      <div id="action-steps-wrap">
+        <div class="grid-2 fade-in stagger-1">
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot green"></div>Immediate Actions (0–3 months)</div>
+            <div class="action-list" id="actions-immediate"></div>
+          </div>
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot blue"></div>Short-term Goals (3–6 months)</div>
+            <div class="action-list" id="actions-short"></div>
+          </div>
+        </div>
+        <div class="grid-2 fade-in stagger-2">
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot yellow"></div>Medium-term Milestones (6–12 months)</div>
+            <div class="action-list" id="actions-medium"></div>
+          </div>
+          <div class="glass-card">
+            <div class="card-title"><div class="card-title-dot blue"></div>What To Do Next</div>
+            <div class="next-steps" id="next-steps"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card full-width fade-in stagger-3">
+        <div class="card-title"><div class="card-title-dot green"></div>Progress Tracker</div>
+        <div class="progress-items" id="progress-items"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <button class="mob-nav-item active" onclick="showPage('input')" data-page="input">
+    <span class="mob-nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+    <span class="mob-nav-label">Profile</span>
+  </button>
+  <button class="mob-nav-item" onclick="showPage('results')" data-page="results">
+    <span class="mob-nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+    <span class="mob-nav-label">Matches</span>
+  </button>
+  <button class="mob-nav-item" onclick="showPage('network')" data-page="network">
+    <span class="mob-nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+    <span class="mob-nav-label">Network</span>
+  </button>
+  <button class="mob-nav-item" onclick="showPage('esos')" data-page="esos">
+    <span class="mob-nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+    <span class="mob-nav-label">ESOs</span>
+  </button>
+  <button class="mob-nav-item" onclick="showPage('action')" data-page="action">
+    <span class="mob-nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+    <span class="mob-nav-label">Action</span>
+  </button>
+</nav>
+
+<script src="js/Eco.js"></script>
+</body>
+</html>
