@@ -337,7 +337,7 @@ function renderFundingPage() {
   const ctx1 = document.getElementById('fundingOverallChart').getContext('2d');
   charts['fundingOverall'] = new Chart(ctx1, chartDefaults('doughnut',
     types,
-    [{ data: funding.map(r => r['Overall']||0), backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc',C_ORANGE+'cc'], hoverOffset:8 }],
+    [{ data: funding.map(r => r['Overall']||0), backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc',C_ORANGE+'cc',C_RED+'cc'], hoverOffset:8 }],
     { plugins:{ legend:{ position:'right', labels:{font:{family:'Poppins',size:10},boxWidth:11} } } }
   ));
 
@@ -362,10 +362,10 @@ function renderFundingPage() {
     types.map((t,i) => ({
       label: truncate(t,20),
       data: funding.map(r => r[['Phnom Penh','Siem Reap','Battambang'][0]]||0), // placeholder approach below
-      backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE][i]+'cc',
+      backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE,C_RED][i]+'cc',
       borderRadius:4
     })),
-    { scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
+    { scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(53, 42, 42, 0.07)'}} } }
   ));
   // Update stacked properly
   const cities = ['Phnom Penh','Siem Reap','Battambang'];
@@ -375,7 +375,7 @@ function renderFundingPage() {
       const row = funding.find(r => r['Type of External Funding'] === t);
       return row ? (row[city]||0) : 0;
     }),
-    backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE][i]+'cc',
+    backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE,C_RED][i]+'cc',
     borderRadius:4,
     stack:'stack0'
   }));
