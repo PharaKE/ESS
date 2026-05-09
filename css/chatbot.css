@@ -407,6 +407,14 @@ body::before {
   .chat-main { margin-left:0 !important; }
   .mobile-menu-btn { display:flex; }
   .chat-body { padding:18px 14px 8px; }
+  .chat-input {
+    font-size: 16px;
+  }
+  
+  /* You might also want to adjust the placeholder and other elements */
+  .chat-input::placeholder {
+    font-size: 14px;  /* Keep placeholder slightly smaller if desired */
+  }
   .chat-input-area { padding:10px 14px 16px; }
   .msg-content { max-width:88%; }
   .msg-bubble { font-size:13px; }
