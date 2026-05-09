@@ -97,7 +97,6 @@ function getColor(score) {
 // ─── NAVIGATION ───
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   const nav = document.querySelector(`.nav-item[onclick="showPage('${name}')"]`);
   if (nav) nav.classList.add('active');

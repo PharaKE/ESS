@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KE · Kumu &amp; EDA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/kumu_eda.css">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+  <div class="loader-spinner"></div>
+  <div class="loader-text">Loading Kumu &amp; EDA...</div>
+</div>
+
+<div id="app">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/logo_KE.png" alt="Khmer Enterprise Logo">
+      <div class="sidebar-logo-text">
+        <div class="ke">Khmer Enterprise</div>
+        <div class="sub">Entrepreneur Support Platform</div>
+      </div>
+      <button class="sidebar-close-btn" onclick="toggleMobileSidebar()" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Systems</div>
+      <div class="nav-item" onclick="window.location.href='GEI.html'">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        Entrepreneur Index
+      </div>
+      <div class="nav-item" onclick="window.location.href='SNA.html'">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+        Social Network Analysis
+      </div>
+      <div class="nav-item active">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><path d="M2 12c0 4.418 4.477 8 10 8s10-3.582 10-8"/><line x1="12" y1="2" x2="12" y2="22"/></svg></span>
+        Kumu &amp; EDA
+      </div>
+      <div class="nav-item" onclick="window.location.href='report.html'">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+        Reports &amp; Research
+      </div>
+      <div class="nav-item" onclick="window.location.href='chatbot.html'">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        AI Chatbot
+      </div>
+      <div class="nav-section">Account</div>
+      <div class="nav-item" onclick="window.location.href='user.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        My Profile
+      </div>
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+        Log Out
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <p>© 2026 All rights reserved <br>◉ Khmer Enterprise</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileSidebar()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="topbar-title">Kumu &amp; <span>EDA</span></div>
+      <div class="topbar-right">
+        <span class="badge-year">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          2024
+        </span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         SECTION 1 — KUMU MAPS
+    ══════════════════════════════ -->
+    <div class="page-section" id="section-kumu">
+
+      <div class="kumu-page-header fade-in">
+        <div class="kumu-page-eyebrow">Ecosystem Mapping</div>
+        <div class="section-title"><span>Kumu</span> Ecosystem Maps</div>
+        <div class="section-sub">Interactive network maps across Cambodia · Click "Open in Kumu" to explore each map</div>
+      </div>
+
+      <div class="kumu-grid fade-in stagger-1">
+
+        <!-- Overall -->
+        <div class="kumu-card">
+          <div class="kumu-card-preview">
+            <img src="images/Kumu_ESO.png" alt="Overall Ecosystem Connection map preview" loading="lazy" />
+            <div class="kumu-card-preview-overlay">
+              <a class="kumu-preview-open" href="https://kumu.io/SNA-Cambodia/sna-entrepreneurial-ecosystem-in-cambodia-2024#sna-2024-eso-ecosystem-mapping" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Kumu
+              </a>
+            </div>
+          </div>
+          <div class="kumu-card-body">
+            <div class="kumu-card-meta">
+              <div class="kumu-card-icon overall"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+              <div class="kumu-card-badge overall">Overall</div>
+            </div>
+            <div class="kumu-card-title">Overall Ecosystem Connection</div>
+            <div class="kumu-card-desc">Full ESO connection map across Cambodia · All nodes and inter-organisational relationships at national level</div>
+            <a class="kumu-open-btn overall" href="https://kumu.io/SNA-Cambodia/sna-entrepreneurial-ecosystem-in-cambodia-2024#sna-2024-eso-ecosystem-mapping" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in Kumu
+            </a>
+          </div>
+        </div>
+
+        <!-- Phnom Penh -->
+        <div class="kumu-card">
+          <div class="kumu-card-preview">
+            <img src="images/Kumu_PP.png" alt="Phnom Penh Ecosystem map preview" loading="lazy" />
+            <div class="kumu-card-preview-overlay">
+              <a class="kumu-preview-open" href="https://kumu.io/Phara3/esos-connection" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Kumu
+              </a>
+            </div>
+          </div>
+          <div class="kumu-card-body">
+            <div class="kumu-card-meta">
+              <div class="kumu-card-icon pp"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="kumu-card-badge pp">Phnom Penh</div>
+            </div>
+            <div class="kumu-card-title">Phnom Penh Ecosystem</div>
+            <div class="kumu-card-desc">SME ecosystem connections in Phnom Penh · Capital city's entrepreneurship support network and stakeholder relationships</div>
+            <a class="kumu-open-btn pp" href="https://kumu.io/Phara3/esos-connection" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in Kumu
+            </a>
+          </div>
+        </div>
+
+        <!-- Siem Reap -->
+        <div class="kumu-card">
+          <div class="kumu-card-preview">
+            <img src="images/Kumu_SR.png" alt="Siem Reap Ecosystem map preview" loading="lazy" />
+            <div class="kumu-card-preview-overlay">
+              <a class="kumu-preview-open" href="https://kumu.io/Phara3/smes-siem-reap" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Kumu
+              </a>
+            </div>
+          </div>
+          <div class="kumu-card-body">
+            <div class="kumu-card-meta">
+              <div class="kumu-card-icon sr"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="kumu-card-badge sr">Siem Reap</div>
+            </div>
+            <div class="kumu-card-title">Siem Reap Ecosystem</div>
+            <div class="kumu-card-desc">SME ecosystem connections in Siem Reap · Tourism hub's entrepreneur network and supporting organisations</div>
+            <a class="kumu-open-btn sr" href="https://kumu.io/Phara3/smes-siem-reap" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in Kumu
+            </a>
+          </div>
+        </div>
+
+        <!-- Battambang -->
+        <div class="kumu-card">
+          <div class="kumu-card-preview">
+            <img src="images/Kumu_BTB.png" alt="Battambang Ecosystem map preview" loading="lazy" />
+            <div class="kumu-card-preview-overlay">
+              <a class="kumu-preview-open" href="https://kumu.io/Phara3/smes-battambang" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open in Kumu
+              </a>
+            </div>
+          </div>
+          <div class="kumu-card-body">
+            <div class="kumu-card-meta">
+              <div class="kumu-card-icon bb"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="kumu-card-badge bb">Battambang</div>
+            </div>
+            <div class="kumu-card-title">Battambang Ecosystem</div>
+            <div class="kumu-card-desc">SME ecosystem connections in Battambang · Northwest city's growing entrepreneurship network and key stakeholders</div>
+            <a class="kumu-open-btn bb" href="https://kumu.io/Phara3/smes-battambang" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in Kumu
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /kumu-grid -->
+    </div><!-- /section kumu -->
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- ══════════════════════════════
+         SECTION 2 — EDA NOTEBOOK
+    ══════════════════════════════ -->
+    <div class="page-section" id="section-eda">
+
+      <div class="eda-section-title-block fade-in stagger-2">
+        <div class="eda-section-label">Notebook</div>
+        <div class="eda-section-heading"><span>Exploratory</span> Data Analysis</div>
+        <div class="eda-section-sub">In-depth statistical analysis of the 2024 SNA survey data · Python · Google Colab</div>
+      </div>
+
+      <div class="eda-notebook-card fade-in stagger-3">
+
+        <div class="eda-notebook-content">
+          <div class="eda-eyebrow">
+            <span class="eda-eyebrow-dot"></span>
+            Jupyter Notebook &nbsp;·&nbsp; Google Colab
+          </div>
+          <div class="eda-nb-title">SNA 2024 — Exploratory Data Analysis</div>
+          <div class="eda-nb-desc">Full statistical exploration of 390 entrepreneur survey responses across Phnom Penh, Siem Reap, and Battambang. Covers distribution profiling, ESO gap modelling, funding pattern analysis, mentorship network statistics, gender breakdowns, and city-level comparisons.</div>
+          <div class="eda-stack-row">
+            <span class="eda-stack-chip colab">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+              Google Colab
+            </span>
+            <span class="eda-stack-chip">Python</span>
+            <span class="eda-stack-chip">Pandas</span>
+            <span class="eda-stack-chip">Matplotlib</span>
+            <span class="eda-stack-chip">Seaborn</span>
+            <span class="eda-stack-chip muted">390 Records</span>
+          </div>
+          <div class="eda-divider"></div>
+          <div class="eda-stats-row">
+            <div class="eda-stat-item">
+              <div class="eda-stat-num" style="color:#1a6bb5">390</div>
+              <div class="eda-stat-lbl">Data Points</div>
+            </div>
+            <div class="eda-stat-sep"></div>
+            <div class="eda-stat-item">
+              <div class="eda-stat-num" style="color:#1a9b5f">3</div>
+              <div class="eda-stat-lbl">Cities</div>
+            </div>
+            <div class="eda-stat-sep"></div>
+            <div class="eda-stat-item">
+              <div class="eda-stat-num" style="color:#cfb532">15+</div>
+              <div class="eda-stat-lbl">Variables</div>
+            </div>
+            <div class="eda-stat-sep"></div>
+            <div class="eda-stat-item">
+              <div class="eda-stat-num" style="color:#5a3ea0">8+</div>
+              <div class="eda-stat-lbl">Sections</div>
+            </div>
+          </div>
+          <a class="eda-cta-btn" href="https://colab.research.google.com/drive/1fPS3LYIubyfzIeCxT3D9Vhpvs__R7iCb?usp=sharing" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Notebook
+          </a>
+        </div>
+
+        <div class="eda-notebook-preview">
+          <div class="eda-img-frame">
+            <div class="eda-img-topbar">
+              <span class="eda-dot r"></span><span class="eda-dot y"></span><span class="eda-dot g"></span>
+              <span class="eda-img-topbar-label">SNA_2024_KE.ipynb</span>
+            </div>
+            <img src="images/EDA_collab.png" alt="EDA Notebook preview" loading="lazy" />
+          </div>
+        </div>
+
+      </div><!-- /eda-notebook-card -->
+    </div><!-- /section eda -->
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- ══════════════════════════════
+         SECTION 3 — LOOKER STUDIO
+    ══════════════════════════════ -->
+    <div class="page-section" id="section-looker">
+
+      <div class="eda-section-title-block fade-in stagger-2">
+        <div class="eda-section-label">Business Intelligence</div>
+        <div class="eda-section-heading"><span>Looker</span> Studio Dashboard</div>
+        <div class="eda-section-sub">Live interactive data dashboards · Google Looker Studio · KE Ecosystem Analytics 2024</div>
+      </div>
+
+      <div class="eda-notebook-card fade-in stagger-3">
+
+        <div class="eda-notebook-content">
+          <div class="eda-eyebrow">
+            <span class="eda-eyebrow-dot looker-dot"></span>
+            Google Looker Studio &nbsp;·&nbsp; Live Dashboard
+          </div>
+          <div class="eda-nb-title">KE Ecosystem Intelligence Dashboard</div>
+          <div class="eda-nb-desc">An interactive business intelligence dashboard visualising key metrics from the 2024 SME ecosystem survey. Explore city-level breakdowns, ESO service gaps, funding landscape, mentorship coverage, and gender distribution — all with dynamic filters.</div>
+
+          <div class="looker-features">
+            <div class="looker-feat-item">
+              <div class="looker-feat-icon blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <div>
+                <div class="looker-feat-title">Multi-page Report</div>
+                <div class="looker-feat-sub">Comprehensive dashboard across multiple views</div>
+              </div>
+            </div>
+            <div class="looker-feat-item">
+              <div class="looker-feat-icon yellow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="looker-feat-title">Live Data Filters</div>
+                <div class="looker-feat-sub">Filter by city, sector, gender, and more</div>
+              </div>
+            </div>
+            <div class="looker-feat-item">
+              <div class="looker-feat-icon purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <div>
+                <div class="looker-feat-title">Interactive Exploration</div>
+                <div class="looker-feat-sub">Click-through charts and drill-down capability</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="eda-divider"></div>
+
+          <a class="looker-cta-btn" href="https://lookerstudio.google.com/reporting/fdb8c9fb-9b64-484d-8062-4da78ad43707" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Dashboard
+          </a>
+        </div>
+
+        <div class="eda-notebook-preview">
+          <div class="eda-img-frame">
+            <div class="eda-img-topbar looker-topbar">
+              <span class="eda-dot r"></span><span class="eda-dot y"></span><span class="eda-dot g"></span>
+              <span class="looker-url-chip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                lookerstudio.google.com
+              </span>
+            </div>
+            <a href="https://lookerstudio.google.com/reporting/fdb8c9fb-9b64-484d-8062-4da78ad43707" target="_blank" rel="noopener" class="looker-img-link">
+              <img src="images/looker_studio.png" alt="Looker Studio Dashboard preview" loading="lazy" />
+              <div class="looker-img-overlay">
+                <div class="looker-overlay-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Open Dashboard
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /looker card -->
+    </div><!-- /section looker -->
+
+    <div style="height:40px"></div>
+
+  </main>
+</div>
+
+Got everything I need. Here's exactly what to do:
+
+Find lines 371–385 — the entire <!-- MOBILE BOTTOM NAV --> block. Replace it with this:
+html<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+
+  <!-- Kumu Maps -->
+  <button class="mob-nav-item active" id="mob-kumu" onclick="scrollToSection('section-kumu', this)">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+    </span>
+    <span class="mob-nav-label">Kumu</span>
+  </button>
+
+  <!-- EDA Notebook -->
+  <button class="mob-nav-item" id="mob-eda" onclick="scrollToSection('section-eda', this)">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+    </span>
+    <span class="mob-nav-label">EDA</span>
+  </button>
+
+  <!-- Looker Studio -->
+  <button class="mob-nav-item" id="mob-looker" onclick="scrollToSection('section-looker', this)">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M3 9h18M9 21V9"/>
+      </svg>
+    </span>
+    <span class="mob-nav-label">Looker</span>
+  </button>
+
+</nav>
+
+<script src="js/kumu_eda.js"></script>
+</body>
+</html>

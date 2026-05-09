@@ -3,17 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KE · Sign In — Ecosystem Intelligence Platform</title>
+<title>KE · Sign In — Entrepreneur Support Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/login.css">
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
 
-<!-- Mobile-only interactive canvas background -->
-<canvas id="mobile-bg-canvas"></canvas>
-
-<!-- Desktop background (hidden on mobile) -->
 <div class="bg-layer">
   <div class="bg-orb bg-orb-1"></div>
   <div class="bg-orb bg-orb-2"></div>
@@ -23,9 +19,7 @@
 
 <div class="layout">
 
-  <!-- ──────────────────────────
-       LEFT PANEL (desktop only)
-  ────────────────────────────── -->
+  <!-- LEFT PANEL (desktop only) -->
   <div class="left-panel">
     <div class="lp-inner">
 
@@ -34,7 +28,7 @@
         <div class="lp-logo-divider"></div>
         <div class="lp-logo-text">
           <div class="lp-brand">Khmer Enterprise</div>
-          <div class="lp-tagline">Ecosystem Intelligence Platform</div>
+          <div class="lp-tagline">Entrepreneur Support Platform</div>
         </div>
       </div>
 
@@ -46,7 +40,7 @@
       <div class="lp-features">
         <div class="lp-feat">
           <div class="lp-feat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </div>
           <div>
             <div class="lp-feat-title">Social Network Analysis</div>
@@ -55,7 +49,7 @@
         </div>
         <div class="lp-feat">
           <div class="lp-feat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div>
             <div class="lp-feat-title">Global Entrepreneurship Index</div>
@@ -64,16 +58,7 @@
         </div>
         <div class="lp-feat">
           <div class="lp-feat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          </div>
-          <div>
-            <div class="lp-feat-title">Ecosystem Matching</div>
-            <div class="lp-feat-desc">Get personalized ESO &amp; funding recommendations</div>
-          </div>
-        </div>
-        <div class="lp-feat">
-          <div class="lp-feat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <div>
             <div class="lp-feat-title">AI Business Assistant</div>
@@ -107,177 +92,164 @@
     </div>
   </div>
 
-  <!-- ──────────────────────────
-       RIGHT PANEL (AUTH CARD)
-  ────────────────────────────── -->
+  <!-- RIGHT PANEL -->
   <div class="right-panel">
 
-    <!-- Mobile Logo -->
-    <div class="mobile-logo">
-      <img src="images/logo_KE.png" alt="KE" class="mobile-logo-img">
+    <!-- Mobile-only top bar -->
+    <div class="mob-bar">
+      <img src="images/logo_KE.png" alt="KE" class="mob-bar-logo">
       <div>
-        <div class="mobile-logo-name">Khmer Enterprise</div>
-        <div class="mobile-logo-sub">Ecosystem Intelligence Platform</div>
+        <div class="mob-bar-name">Khmer Enterprise</div>
+        <div class="mob-bar-sub">Entrepreneur Support Platform</div>
       </div>
     </div>
 
-    <div class="auth-card">
+    <!-- Scrollable card area -->
+    <div class="rp-inner">
 
-      <!-- Tabs -->
-      <div class="auth-tabs">
-        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-          Sign In
-        </button>
-        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-          Create Account
-        </button>
-      </div>
+      <div class="auth-card">
 
-      <!-- ── LOGIN FORM ── -->
-      <div class="auth-form" id="form-login">
-        <div class="form-head">
-          <div class="form-title">Welcome back</div>
-          <div class="form-sub">Sign in to your KE Ecosystem account</div>
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Sign In
+          </button>
+          <button class="auth-tab" id="tab-register" onclick="switchTab('register')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            Create Account
+          </button>
         </div>
 
-        <button class="google-btn" onclick="handleGoogle()">
-          <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-          </svg>
-          Continue with Google
-        </button>
-
-        <div class="divider"><span>or sign in with email</span></div>
-
-        <div class="field">
-          <label class="field-label">Email Address</label>
-          <div class="field-wrap">
-            <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <input type="email" id="login-email" class="field-input" placeholder="you@example.com" value="demo@khmerenterprise.kh" autocomplete="email">
+        <!-- LOGIN FORM -->
+        <div class="auth-form" id="form-login">
+          <div class="form-head">
+            <div class="form-title">Welcome back</div>
+            <div class="form-sub">Sign in with your name and password</div>
           </div>
-        </div>
-        <div class="field">
-          <label class="field-label">Password</label>
-          <div class="field-wrap">
-            <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <input type="password" id="login-pass" class="field-input" placeholder="••••••••" value="password123" autocomplete="current-password">
-            <button type="button" class="eye-btn" onclick="togglePwd('login-pass',this)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
 
-        <div class="row-between">
-          <label class="check-label">
-            <input type="checkbox" checked> Remember me
-          </label>
-          <a class="link-sm" href="#">Forgot password?</a>
-        </div>
-
-        <button class="submit-btn" onclick="handleLogin()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-          Sign In to Platform
-        </button>
-
-        <p class="switch-note">Don't have an account? <a onclick="switchTab('register')">Create one free</a></p>
-      </div>
-
-      <!-- ── REGISTER FORM ── -->
-      <div class="auth-form hidden" id="form-register">
-        <div class="form-head">
-          <div class="form-title">Join the ecosystem</div>
-          <div class="form-sub">Create your free KE Ecosystem account</div>
-        </div>
-
-        <button class="google-btn" onclick="handleGoogle()">
-          <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-          </svg>
-          Sign up with Google
-        </button>
-
-        <div class="divider"><span>or register with email</span></div>
-
-        <div class="field-row">
           <div class="field">
-            <label class="field-label">First Name</label>
+            <label class="field-label">Full Name</label>
             <div class="field-wrap">
               <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <input type="text" class="field-input" placeholder="Sophea">
+              <input type="text" id="login-name" class="field-input" placeholder="Enter your full name" autocomplete="name">
             </div>
           </div>
+
           <div class="field">
-            <label class="field-label">Last Name</label>
+            <label class="field-label">Password</label>
             <div class="field-wrap">
-              <input type="text" class="field-input no-icon" placeholder="Chan">
+              <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="login-pass" class="field-input" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="eye-btn" onclick="togglePwd('login-pass',this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
             </div>
           </div>
+
+          <div class="row-between">
+            <label class="check-label">
+              <input type="checkbox" checked> Remember me
+            </label>
+            <a class="link-sm" href="#">Forgot password?</a>
+          </div>
+
+          <button class="submit-btn" onclick="handleLogin()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Sign In to Platform
+          </button>
+
+          <p class="switch-note">Don't have an account? <a onclick="switchTab('register')">Create one free</a></p>
         </div>
 
-        <div class="field">
-          <label class="field-label">Email Address</label>
-          <div class="field-wrap">
-            <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <input type="email" class="field-input" placeholder="you@example.com">
+        <!-- REGISTER FORM -->
+        <div class="auth-form hidden" id="form-register">
+          <div class="form-head">
+            <div class="form-title">Join the ecosystem</div>
+            <div class="form-sub">Create your free KE Ecosystem account</div>
           </div>
-        </div>
 
-        <div class="field">
-          <label class="field-label">Password</label>
-          <div class="field-wrap">
-            <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <input type="password" id="reg-pass" class="field-input" placeholder="Create a strong password" oninput="checkStrength(this.value)">
-            <button type="button" class="eye-btn" onclick="togglePwd('reg-pass',this)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-          <div class="strength-row">
-            <div class="strength-bars">
-              <div class="sb" id="sb1"></div><div class="sb" id="sb2"></div>
-              <div class="sb" id="sb3"></div><div class="sb" id="sb4"></div>
+          <div class="field">
+            <label class="field-label">Full Name</label>
+            <div class="field-wrap">
+              <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="reg-name" class="field-input" placeholder="e.g. Ching Tong" autocomplete="name">
             </div>
-            <span class="strength-label" id="strength-label">Enter password</span>
           </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label">Gender</label>
+              <div class="field-wrap">
+                <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M12 12v2m0 0v2m0-2H9m3 0h3"/><path d="M9 19c0-1.66 1.34-3 3-3s3 1.34 3 3"/></svg>
+                <select id="reg-gender" class="field-input field-select">
+                  <option value="">Select gender…</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Position / Occupation</label>
+              <div class="field-wrap">
+                <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                <input type="text" id="reg-position" class="field-input" placeholder="e.g. Student">
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Organization</label>
+            <div class="field-wrap">
+              <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <input type="text" id="reg-org" class="field-input" placeholder="e.g. ITC">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Create Password</label>
+            <div class="field-wrap">
+              <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="reg-pass" class="field-input" placeholder="Create a strong password" oninput="checkStrength(this.value)">
+              <button type="button" class="eye-btn" onclick="togglePwd('reg-pass',this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="strength-row">
+              <div class="strength-bars">
+                <div class="sb" id="sb1"></div><div class="sb" id="sb2"></div>
+                <div class="sb" id="sb3"></div><div class="sb" id="sb4"></div>
+              </div>
+              <span class="strength-label" id="strength-label">Enter password</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Confirm Password</label>
+            <div class="field-wrap">
+              <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="reg-confirm" class="field-input" placeholder="Re-enter your password">
+              <button type="button" class="eye-btn" onclick="togglePwd('reg-confirm',this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button class="submit-btn" onclick="handleRegister()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            Create Free Account
+          </button>
+
+          <p class="switch-note">Already have an account? <a onclick="switchTab('login')">Sign in</a></p>
         </div>
 
-        <div class="field">
-          <label class="field-label">City / Province</label>
-          <div class="field-wrap">
-            <svg class="field-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <select class="field-input field-select">
-              <option value="">Select your city...</option>
-              <option>Phnom Penh</option>
-              <option>Siem Reap</option>
-              <option>Battambang</option>
-              <option>Other Province</option>
-            </select>
-          </div>
-        </div>
+      </div><!-- .auth-card -->
 
-        <label class="check-label" style="margin-bottom:16px">
-          <input type="checkbox" id="terms">
-          I agree to the <a href="#" class="link-sm">Terms of Service</a>
-        </label>
+      <p class="copyright">© 2026 Khmer Enterprise · All rights reserved</p>
 
-        <button class="submit-btn" onclick="handleRegister()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-          Create Free Account
-        </button>
+    </div><!-- .rp-inner -->
 
-        <p class="switch-note">Already have an account? <a onclick="switchTab('login')">Sign in</a></p>
-      </div>
-
-    </div><!-- .auth-card -->
-
-    <p class="copyright">© 2026 Khmer Enterprise · All rights reserved</p>
   </div><!-- .right-panel -->
 
 </div><!-- .layout -->
@@ -291,161 +263,5 @@
 </div>
 
 <script src="js/login.js"></script>
-<script>
-/* ══════════════════════════════════════════════════
-   Mobile Interactive Canvas Background
-   Network-node particle system — green/blue nodes
-   connected by animated lines, reacts to touch
-══════════════════════════════════════════════════ */
-(function() {
-  const canvas = document.getElementById('mobile-bg-canvas');
-  if (!canvas) return;
-
-  // Only run on mobile breakpoint
-  function isMobile() { return window.innerWidth <= 768; }
-  if (!isMobile()) return;
-
-  const ctx = canvas.getContext('2d');
-  let W, H, nodes, animId, mouse = { x: -1000, y: -1000 };
-
-  const COLORS = [
-    'rgba(26,155,95,',   // green
-    'rgba(26,107,181,',  // blue
-    'rgba(46,204,138,',  // green-light
-    'rgba(96,208,255,'   // sky
-  ];
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    buildNodes();
-  }
-
-  function buildNodes() {
-    const count = Math.floor((W * H) / 9000); // ~density
-    nodes = Array.from({ length: Math.min(count, 55) }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.45,
-      vy: (Math.random() - 0.5) * 0.45,
-      r: Math.random() * 2.4 + 1.2,
-      alpha: Math.random() * 0.55 + 0.25,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: 0.015 + Math.random() * 0.02
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-
-    // Background gradient
-    const grad = ctx.createLinearGradient(0, 0, W * 0.6, H);
-    grad.addColorStop(0, 'rgba(7,27,48,0)');
-    grad.addColorStop(1, 'rgba(13,52,96,0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
-
-    const LINK_DIST = 140;
-    const MOUSE_DIST = 120;
-
-    // Draw connections
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i], b = nodes[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < LINK_DIST) {
-          const opacity = (1 - dist / LINK_DIST) * 0.22;
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(46,204,138,${opacity})`;
-          ctx.lineWidth = 0.8;
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-
-      // Mouse interaction lines
-      const mn = nodes[i];
-      const mdx = mn.x - mouse.x, mdy = mn.y - mouse.y;
-      const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (mdist < MOUSE_DIST) {
-        const mOpacity = (1 - mdist / MOUSE_DIST) * 0.55;
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(26,155,95,${mOpacity})`;
-        ctx.lineWidth = 1.2;
-        ctx.moveTo(mn.x, mn.y);
-        ctx.lineTo(mouse.x, mouse.y);
-        ctx.stroke();
-        // Nudge node slightly toward mouse
-        mn.vx += (mouse.x - mn.x) * 0.00012;
-        mn.vy += (mouse.y - mn.y) * 0.00012;
-      }
-    }
-
-    // Draw nodes
-    nodes.forEach(n => {
-      n.pulse += n.pulseSpeed;
-      const pulseAlpha = n.alpha + Math.sin(n.pulse) * 0.12;
-
-      // Glow
-      const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 3.5);
-      grd.addColorStop(0, n.color + (pulseAlpha * 0.6).toFixed(2) + ')');
-      grd.addColorStop(1, n.color + '0)');
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r * 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = grd;
-      ctx.fill();
-
-      // Core dot
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = n.color + pulseAlpha.toFixed(2) + ')';
-      ctx.fill();
-
-      // Move
-      n.x += n.vx;
-      n.y += n.vy;
-      // Dampen speed
-      n.vx *= 0.999;
-      n.vy *= 0.999;
-      // Bounce
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
-      n.x = Math.max(0, Math.min(W, n.x));
-      n.y = Math.max(0, Math.min(H, n.y));
-    });
-
-    animId = requestAnimationFrame(draw);
-  }
-
-  // Touch / pointer tracking
-  function handleMove(e) {
-    const rect = canvas.getBoundingClientRect();
-    if (e.touches && e.touches[0]) {
-      mouse.x = e.touches[0].clientX - rect.left;
-      mouse.y = e.touches[0].clientY - rect.top;
-    } else {
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    }
-  }
-  function handleLeave() { mouse.x = -1000; mouse.y = -1000; }
-
-  canvas.addEventListener('mousemove', handleMove, { passive: true });
-  canvas.addEventListener('touchmove', handleMove, { passive: true });
-  canvas.addEventListener('touchstart', handleMove, { passive: true });
-  canvas.addEventListener('mouseleave', handleLeave);
-  canvas.addEventListener('touchend', handleLeave);
-
-  window.addEventListener('resize', () => {
-    if (isMobile()) { resize(); } else { cancelAnimationFrame(animId); }
-  });
-
-  resize();
-  draw();
-})();
-</script>
 </body>
 </html>

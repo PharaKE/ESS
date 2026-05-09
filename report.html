@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KE · Reports &amp; Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/report.css">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Sans+Khmer:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+  <div class="loader-spinner"></div>
+  <div class="loader-text">Loading Knowledge Library...</div>
+</div>
+
+<div id="app">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="images/logo_KE.png" alt="Khmer Enterprise Logo">
+      <div class="sidebar-logo-text">
+        <div class="ke">Khmer Enterprise</div>
+        <div class="sub">Entrepreneur Support Platform</div>
+      </div>
+      <button class="sidebar-close-btn" onclick="toggleMobileSidebar()" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Systems</div>
+      <div class="nav-item" onclick="window.location.href='GEI.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
+        Entrepreneur Index
+      </div>
+      <div class="nav-item" onclick="window.location.href='SNA.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </span>
+        Social Network Analysis
+      </div>
+      <div class="nav-item" onclick="window.location.href='kumu_eda.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><path d="M2 12c0 4.418 4.477 8 10 8s10-3.582 10-8"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        </span>
+        Kumu &amp; EDA
+      </div>
+      <div class="nav-item active" onclick="window.location.href='report.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </span>
+        Reports &amp; Research
+      </div>
+      <div class="nav-item" onclick="window.location.href='chatbot.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        AI Chatbot
+      </div>
+      <div class="nav-section">Account</div>
+      <div class="nav-item" onclick="window.location.href='user.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        My Profile
+      </div>
+      <div class="nav-item" onclick="window.location.href='index.html'">
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </span>
+        Log Out
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <p>© 2026 All rights reserved <br>◉ Khmer Enterprise</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileSidebar()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="topbar-title">Reports &amp; <span>Research</span></div>
+
+      <!-- Filter tabs -->
+      <nav class="top-nav" id="topNav">
+        <button class="top-nav-item active" onclick="filterReports('all')" data-filter="all">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          All Reports
+        </button>
+        <button class="top-nav-item" onclick="filterReports('annual')" data-filter="annual">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Annual Reports
+        </button>
+        <button class="top-nav-item" onclick="filterReports('research')" data-filter="research">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Research
+        </button>
+        <button class="top-nav-item" onclick="filterReports('global')" data-filter="global">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Global Index
+        </button>
+      </nav>
+
+    </div>
+    <!-- HERO BANNER -->
+    <div class="hero-banner fade-in">
+      <div class="hero-content">
+        <div class="hero-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Knowledge Library
+        </div>
+        <div class="hero-title">KE Reports &amp; Research</div>
+        <div class="hero-sub">Explore our collection of annual reports, ecosystem research, and global entrepreneurship indices. All resources are open access and publicly available.</div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">7</div>
+            <div class="hero-stat-lbl">Publications</div>
+          </div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">4</div>
+            <div class="hero-stat-lbl">Years Covered</div>
+          </div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-lbl">Categories</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decoration">
+        <div class="hero-dec-circle c1"></div>
+        <div class="hero-dec-circle c2"></div>
+        <div class="hero-dec-circle c3"></div>
+        <svg class="hero-dec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+    </div>
+
+    <!-- REPORTS GRID -->
+    <div class="reports-area">
+      <div class="reports-grid" id="reportsGrid">
+
+        <!-- ── Featured: EER ── -->
+        <div class="report-card featured fade-in stagger-1" data-category="research" data-title="Entrepreneurial Ecosystem Roadmap">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/EER_report.png" alt="Entrepreneurial Ecosystem Roadmap cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1H1RzuiUfCTbEGkwBCVkzIHoFBXLEC4t1/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="featured-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Featured
+              </div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag research">Research</span>
+                <span class="report-format pdf">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  PDF
+                </span>
+              </div>
+              <div class="report-title">Entrepreneurial Ecosystem Roadmap</div>
+              <div class="report-subtitle">EER — Cambodia</div>
+              <div class="report-desc">A strategic roadmap outlining key pillars and priorities for strengthening Cambodia's entrepreneurial ecosystem. Covers policy recommendations, ESO capacity, and SME support frameworks.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn" href="https://drive.google.com/file/d/1H1RzuiUfCTbEGkwBCVkzIHoFBXLEC4t1/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Annual Report 2023 ── -->
+        <div class="report-card fade-in stagger-2" data-category="annual" data-title="Khmer Enterprise Annual Report 2023">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/KE_Annual_report23_EN.png" alt="KE Annual Report 2023 cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1QgQJIh64yajnQLlDOyTkSYxhg90NpkvJ/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge">2023</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag annual">Annual Report</span>
+                <span class="report-lang en">EN</span>
+              </div>
+              <div class="report-title">KE Annual Report 2023</div>
+              <div class="report-subtitle">Khmer Enterprise — English Edition</div>
+              <div class="report-desc">Annual performance report highlighting KE's programmes, impact metrics, entrepreneur support statistics, and strategic highlights for 2023.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot annual"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn annual" href="https://drive.google.com/file/d/1QgQJIh64yajnQLlDOyTkSYxhg90NpkvJ/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Annual Report 2024 EN ── -->
+        <div class="report-card fade-in stagger-3" data-category="annual" data-title="Khmer Enterprise Annual Report 2024 English">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/KE_Annual_report24_EN.png" alt="KE Annual Report 2024 English cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1V91mAOdN5Dn29hF80OXB2UbJq-zvp9xK/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge new">2024</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag annual">Annual Report</span>
+                <span class="report-lang en">EN</span>
+              </div>
+              <div class="report-title">KE Annual Report 2024</div>
+              <div class="report-subtitle">Khmer Enterprise — English Edition</div>
+              <div class="report-desc">The latest annual report documenting KE's achievements, programme outcomes, SME development initiatives, and ecosystem building efforts in 2024.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot annual"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn annual" href="https://drive.google.com/file/d/1V91mAOdN5Dn29hF80OXB2UbJq-zvp9xK/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Annual Report 2024 KH ── -->
+        <div class="report-card fade-in stagger-4" data-category="annual" data-title="Khmer Enterprise Annual Report 2024 Khmer">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/KE_Annual_report24_KH.png" alt="KE Annual Report 2024 Khmer cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/17JhfKmpZHsKwpMb0-a68QYQTYjh2I5UE/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge new">2024</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag annual">Annual Report</span>
+                <span class="report-lang kh">KH</span>
+              </div>
+              <div class="report-title">KE Annual Report 2024</div>
+              <div class="report-subtitle">Khmer Enterprise — Khmer Edition</div>
+              <div class="report-desc report-desc-kh">របាយការណ៍ប្រចាំឆ្នាំ ២០២៤ ដែលបង្ហាញពីសមិទ្ធផល និងផែនការនៃ Khmer Enterprise ក្នុងការគាំទ្រ SMEs ។</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot annual"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn annual" href="https://drive.google.com/file/d/17JhfKmpZHsKwpMb0-a68QYQTYjh2I5UE/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SNA 2021 ── -->
+        <div class="report-card fade-in stagger-1" data-category="research" data-title="Social Network Analysis Cambodia Ecosystem 2021">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/SNA_ECO_report21.png" alt="SNA Ecosystem Report 2021 cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1gYR9-cZ_pBzRVwo-uRdJtRkgoiqXldZa/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge">2021</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag research">Research</span>
+                <span class="report-format pdf">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  PDF
+                </span>
+              </div>
+              <div class="report-title">SNA of Cambodia Ecosystem 2021</div>
+              <div class="report-subtitle">Social Network Analysis — Baseline</div>
+              <div class="report-desc">The foundational social network analysis study of Cambodia's SME and entrepreneurship ecosystem, establishing baseline network metrics and connectivity patterns.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn" href="https://drive.google.com/file/d/1gYR9-cZ_pBzRVwo-uRdJtRkgoiqXldZa/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SNA 2024 ── -->
+        <div class="report-card fade-in stagger-2" data-category="research" data-title="Social Network Analysis Cambodia Ecosystem 2024">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/SNA_ECO_report24.png" alt="SNA Ecosystem Report 2024 cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1OLshS4QRFwRIjCaQGHA6-cHKYcsj57Za/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge new">2024</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag research">Research</span>
+                <span class="report-format pdf">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  PDF
+                </span>
+              </div>
+              <div class="report-title">SNA of Cambodia Ecosystem 2024</div>
+              <div class="report-subtitle">Social Network Analysis — Latest Edition</div>
+              <div class="report-desc">The latest social network analysis of Cambodia's entrepreneurial ecosystem, tracking changes since 2021 and providing updated network maps across Phnom Penh, Siem Reap, and Battambang.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot"></div>
+                  Khmer Enterprise
+                </div>
+                <a class="report-read-btn" href="https://drive.google.com/file/d/1OLshS4QRFwRIjCaQGHA6-cHKYcsj57Za/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Global Entrepreneurship Index ── -->
+        <div class="report-card fade-in stagger-3" data-category="global" data-title="Opinium Global Entrepreneurship Index 2025">
+          <div class="report-card-inner">
+            <div class="report-cover">
+              <img src="images/Opinium_GEI_report.png" alt="Opinium Global Entrepreneurship Index 2025 cover" loading="lazy" />
+              <div class="report-cover-overlay">
+                <a class="report-cover-btn" href="https://drive.google.com/file/d/1pSzqsyRh2bjxQMQbYwstn0Z_0nsOPIGi/view?usp=sharing" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read Report
+                </a>
+              </div>
+              <div class="year-badge new">2025</div>
+            </div>
+            <div class="report-body">
+              <div class="report-meta-row">
+                <span class="report-tag global">Global Index</span>
+                <span class="report-format pdf">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  PDF
+                </span>
+              </div>
+              <div class="report-title">Global Entrepreneurship Index 2025</div>
+              <div class="report-subtitle">Opinium — Global Benchmarking</div>
+              <div class="report-desc">A comprehensive global index benchmarking entrepreneurship conditions, ecosystem strength, and startup activity across countries. Provides context for Cambodia's position in the global landscape.</div>
+              <div class="report-footer">
+                <div class="report-org">
+                  <div class="report-org-dot global"></div>
+                  Opinium Research
+                </div>
+                <a class="report-read-btn global" href="https://drive.google.com/file/d/1pSzqsyRh2bjxQMQbYwstn0Z_0nsOPIGi/view?usp=sharing" target="_blank" rel="noopener">
+                  Read
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reports-grid -->
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="empty-title">No reports found</div>
+        <div class="empty-sub">Try adjusting your search or filter.</div>
+      </div>
+
+    </div><!-- /reports-area -->
+
+  </main>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <button class="mob-nav-item active" onclick="filterReports('all')" data-filter="all">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    </span>
+    <span class="mob-nav-label">All</span>
+  </button>
+  <button class="mob-nav-item" onclick="filterReports('annual')" data-filter="annual">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </span>
+    <span class="mob-nav-label">Annual</span>
+  </button>
+  <button class="mob-nav-item" onclick="filterReports('research')" data-filter="research">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </span>
+    <span class="mob-nav-label">Research</span>
+  </button>
+  <button class="mob-nav-item" onclick="filterReports('global')" data-filter="global">
+    <span class="mob-nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </span>
+    <span class="mob-nav-label">Global</span>
+  </button>
+</nav>
+
+<script src="js/report.js"></script>
+</body>
+</html>
