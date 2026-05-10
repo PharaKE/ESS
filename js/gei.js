@@ -78,7 +78,6 @@ const INCOME_COLORS = {
 
 function getIncomeColor(income, score) {
   const ic = INCOME_COLORS[income] || INCOME_COLORS['Low income'];
-  // Use score to pick shade: 0-20=4, 20-40=3, 40-60=2, 60-80=1, 80-100=0 (darkest=highest score)
   const idx = Math.max(0, Math.min(4, Math.floor((100-(score||0))/20)));
   return ic.shades[idx];
 }
@@ -271,7 +270,6 @@ function renderRegionChart(data) {
   });
   const labels = Object.keys(regionMap);
   const avgs = labels.map(r => Math.round(regionMap[r].scores.reduce((s,v)=>s+v,0)/regionMap[r].scores.length));
-  // Color bars by dominant income type in each region
   const REGION_COLORS = ['#1a6bb5','#27a891','#c8a800','#c86432','#7b4fbf','#2ecc8a','#e05252'];
   const ctx = document.getElementById('regionChart');
   if (charts.region) charts.region.destroy();
@@ -283,10 +281,65 @@ function renderRegionChart(data) {
       borderColor: labels.map((_,i)=>REGION_COLORS[i%REGION_COLORS.length]),
       borderWidth:2, borderRadius:7
     }] },
-    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:9}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    options:{ 
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            label: function(ctx) {
+              return `Avg Score: ${ctx.parsed.y}/100`;
+            }
+          }
+        },
+        // Data labels plugin
+        datalabels: {
+          anchor: 'end',
+          align: 'top',
+          font: { family:'Poppins', size:9, weight:'700' },
+          color: '#1a2540',
+          formatter: function(value) {
+            return value;
+          }
+        }
+      }, 
+      scales:{
+        y:{
+          beginAtZero:true,
+          max:100,
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:9}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:8}}
+        }
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1
+    },
+    plugins: [{
+      id: 'customDataLabels',
+      afterDraw: function(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets[0].data.forEach((value, index) => {
+          const meta = chart.getDatasetMeta(0);
+          const x = meta.data[index].x;
+          const y = meta.data[index].y;
+          ctx.save();
+          ctx.font = 'bold 9px Poppins';
+          ctx.fillStyle = '#1a2540';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+          ctx.fillText(value, x, y - 6);
+          ctx.restore();
+        });
+      }
+    }]
   });
 }
 
+// ─── INCOME CHART ───
 // ─── INCOME CHART ───
 function renderIncomeChart(data) {
   const incMap = {};
@@ -295,12 +348,89 @@ function renderIncomeChart(data) {
   const labels = order.filter(k=>incMap[k]);
   const avgs = labels.map(k=>Math.round(incMap[k].reduce((s,v)=>s+v,0)/incMap[k].length));
   const incomeColors = labels.map(l => (INCOME_COLORS[l]||INCOME_COLORS['Low income']).base);
+  
+  // Calculate total average for center text
+  const totalAvg = Math.round(avgs.reduce((s,v)=>s+v,0) / avgs.length);
+  
   const ctx = document.getElementById('incomeChart');
   if (charts.income) charts.income.destroy();
   charts.income = new Chart(ctx, {
     type:'doughnut',
-    data:{ labels, datasets:[{ data:avgs, backgroundColor:incomeColors.map(c=>c+'cc'), borderColor:incomeColors, borderWidth:2.5, hoverOffset:8 }] },
-    options:{ plugins:{ legend:{position:'bottom',labels:{font:{family:'Poppins',size:10},padding:10,usePointStyle:true}}, tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed}/100 avg`}} }, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    data:{ 
+      labels, 
+      datasets:[{ 
+        data: avgs, 
+        backgroundColor: incomeColors.map(c=>c+'cc'), 
+        borderColor: incomeColors, 
+        borderWidth: 2.5,
+        borderRadius: 0,  // No rounded edges
+        hoverOffset: 8 
+      }] 
+    },
+    options:{ 
+      plugins:{ 
+        legend:{
+          position:'bottom',
+          labels:{
+            font:{family:'Poppins',size:10},
+            padding:10,
+            usePointStyle:true
+          }
+        }, 
+        tooltip:{
+          enabled: true,
+          callbacks:{
+            label: function(ctx) {
+              return `${ctx.label}: ${ctx.parsed}/100 avg`;
+            }
+          }
+        }
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1,
+      cutout: '65%',
+      // Ensure hover interactions work
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      }
+    },
+    plugins: [{
+      id: 'centerText',
+      // Use beforeDraw instead of afterDraw to ensure it's behind tooltips
+      beforeDraw: function(chart) {
+        const { ctx, chartArea: { width, height } } = chart;
+        
+        // Save context state
+        ctx.save();
+        
+        // Clear center area
+        const centerX = width / 2;
+        const centerY = height / 2;
+        
+        // Draw white circle background for better contrast
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 45, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.fill();
+        
+        // Draw the average score
+        ctx.font = 'bold 28px Poppins';
+        ctx.fillStyle = '#1a2540';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(totalAvg, centerX, centerY - 8);
+        
+        // Draw the label
+        ctx.font = '11px Poppins';
+        ctx.fillStyle = '#6b8aaa';
+        ctx.fillText('Avg Score', centerX, centerY + 18);
+        
+        // Restore context state
+        ctx.restore();
+      }
+    }]
   });
 }
 
@@ -313,7 +443,27 @@ function renderPillarRadar(data) {
   charts.radar = new Chart(ctx, {
     type:'radar',
     data:{ labels:PILLAR_LABELS, datasets:[{ label:'Average Score', data:avgs, backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'rgba(26,155,95,1)', borderWidth:2, pointRadius:3 }] },
-    options:{ scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{family:'Poppins',size:8}},grid:{color:'rgba(26,107,181,0.10)'},pointLabels:{font:{family:'Poppins',size:9}}}}, plugins:{legend:{display:false}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    options:{ 
+      scales:{
+        r:{
+          min:0,
+          max:100,
+          ticks:{
+            stepSize:20,
+            font:{family:'Poppins',size:8},
+            callback: function() { return ''; }  // Hide tick labels
+          },
+          grid:{color:'rgba(26,107,181,0.10)'},
+          pointLabels:{font:{family:'Poppins',size:9}}
+        }
+      }, 
+      plugins:{
+        legend:{display:false}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1
+    }
   });
 }
 
@@ -328,7 +478,46 @@ function renderDistribution(data) {
   charts.dist=new Chart(ctx,{
     type:'bar',
     data:{labels,datasets:[{label:'Countries',data:counts,backgroundColor:'rgba(26,107,181,0.55)',borderColor:'rgba(26,107,181,0.8)',borderWidth:2,borderRadius:5}]},
-    options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:9}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}},responsive:true,maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    options:{
+      plugins:{
+        legend:{display:false}
+      },
+      scales:{
+        y:{
+          beginAtZero:true,
+          max: 35,  // Increased from 25 to 35
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:9}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:8}}
+        }
+      },
+      responsive:true,
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1
+    },
+    plugins: [{
+      id: 'customDataLabels',
+      afterDraw: function(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets[0].data.forEach((value, index) => {
+          if (value > 0) {
+            const meta = chart.getDatasetMeta(0);
+            const x = meta.data[index].x;
+            const y = meta.data[index].y;
+            ctx.save();
+            ctx.font = 'bold 9px Poppins';
+            ctx.fillStyle = '#1a2540';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(value, x, y - 6);
+            ctx.restore();
+          }
+        });
+      }
+    }]
   });
 }
 
@@ -417,7 +606,26 @@ function showCountryDetail() {
   charts.detailRadar = new Chart(rCtx, {
     type:'radar',
     data:{ labels:PILLAR_LABELS, datasets:[{ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'#1a9b5f', borderWidth:2, pointRadius:4 }] },
-    options:{ scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{family:'Poppins',size:8}},pointLabels:{font:{family:'Poppins',size:9}}}}, plugins:{legend:{display:false}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:1.1}
+    options:{ 
+      scales:{
+        r:{
+          min:0,
+          max:100,
+          ticks:{
+            stepSize:20,
+            font:{family:'Poppins',size:8},
+            callback: function() { return ''; }
+          },
+          pointLabels:{font:{family:'Poppins',size:9}}
+        }
+      }, 
+      plugins:{
+        legend:{display:false}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:1.1
+    }
   });
 
   const hist = GEI.historical[c.country]||{};
@@ -427,7 +635,26 @@ function showCountryDetail() {
   charts.detailTrend = new Chart(tCtx, {
     type:'line',
     data:{ labels:YEARS, datasets:[{ label:c.country, data:trendData, borderColor:'rgba(26,107,181,0.9)', backgroundColor:'rgba(26,107,181,0.10)', fill:true, tension:0.4, borderWidth:2, pointRadius:3 }] },
-    options:{ scales:{y:{min:0,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}}, plugins:{legend:{display:false}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:1.1}
+    options:{ 
+      scales:{
+        y:{
+          min:0,
+          max:100,
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:8}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:8}}
+        }
+      }, 
+      plugins:{
+        legend:{display:false}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:1.1
+    }
   });
 }
 
@@ -467,7 +694,22 @@ function updateComparison() {
   charts.cmpRadar = new Chart(rCtx, {
     type:'radar',
     data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg, borderColor:palette[i].border, pointBackgroundColor:palette[i].border, borderWidth:2, pointRadius:3 })) },
-    options:{ scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{family:'Poppins',size:8}},pointLabels:{font:{family:'Poppins',size:9,weight:'600'}}}}, plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10},padding:10}}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    options:{ 
+      scales:{
+        r:{
+          min:0,
+          max:100,
+          ticks:{stepSize:20,font:{family:'Poppins',size:8}, callback: function() { return ''; }},
+          pointLabels:{font:{family:'Poppins',size:9,weight:'600'}}
+        }
+      }, 
+      plugins:{
+        legend:{position:'bottom',labels:{font:{family:'Poppins',size:10},padding:10}}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1
+    }
   });
 
   // Trend
@@ -476,7 +718,16 @@ function updateComparison() {
   charts.cmpTrend = new Chart(tCtx, {
     type:'line',
     data:{ labels:YEARS, datasets:cs.map((c,i)=>{ const hist=GEI.historical[c.country]||{}; return { label:c.country, data:YEARS.map(y=>hist[y]||null), borderColor:palette[i].border, backgroundColor:palette[i].bg, fill:false, tension:0.4, borderWidth:2, pointRadius:3 }; }) },
-    options:{ scales:{y:{min:0,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}}, plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?2:2.1}
+    options:{ 
+      scales:{
+        y:{min:0,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},
+        x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}
+      }, 
+      plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?2:2.1
+    }
   });
 
   // Bar
@@ -485,7 +736,48 @@ function updateComparison() {
   charts.cmpBar = new Chart(bCtx, {
     type:'bar',
     data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg.replace('0.15','0.65').replace('0.12','0.65'), borderColor:palette[i].border, borderWidth:2, borderRadius:5 })) },
-    options:{ scales:{y:{beginAtZero:true,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:9}}}}, plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?3:2.1}
+    options:{ 
+      scales:{
+        y:{
+          beginAtZero:true,
+          max: 120,  // Increased from 100 to 120
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:8}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:9}}
+        }
+      }, 
+      plugins:{
+        legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?3:2.1
+    },
+    plugins: [{
+      id: 'customDataLabels',
+      afterDraw: function(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((dataset, datasetIndex) => {
+          const meta = chart.getDatasetMeta(datasetIndex);
+          dataset.data.forEach((value, index) => {
+            if (value > 0) {
+              const x = meta.data[index].x;
+              const y = meta.data[index].y;
+              ctx.save();
+              ctx.font = 'bold 9px Poppins';
+              ctx.fillStyle = '#1a2540';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+              ctx.fillText(value, x, y - 4);
+              ctx.restore();
+            }
+          });
+        });
+      }
+    }]
   });
 }
 
@@ -503,7 +795,48 @@ function renderInsightsPage() {
   charts.regionalPillar = new Chart(rpCtx, {
     type:'bar',
     data:{ labels:regions.map(r=>r.replace('& ','&\n')), datasets:regionPillarData },
-    options:{ scales:{y:{beginAtZero:true,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}}, plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:9}}}}, responsive:true, maintainAspectRatio:true, aspectRatio:window.innerWidth>768?3:1.1}
+    options:{ 
+      scales:{
+        y:{
+          beginAtZero:true,
+          max:100,
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:8}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:8}}
+        }
+      }, 
+      plugins:{
+        legend:{position:'bottom',labels:{font:{family:'Poppins',size:9}}}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio:window.innerWidth>768?3:1.1
+    },
+    plugins: [{
+      id: 'customDataLabels',
+      afterDraw: function(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((dataset, datasetIndex) => {
+          const meta = chart.getDatasetMeta(datasetIndex);
+          dataset.data.forEach((value, index) => {
+            if (value > 0) {
+              const x = meta.data[index].x;
+              const y = meta.data[index].y;
+              ctx.save();
+              ctx.font = 'bold 8px Poppins';
+              ctx.fillStyle = '#1a2540';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+              ctx.fillText(value, x, y - 3);
+              ctx.restore();
+            }
+          });
+        });
+      }
+    }]
   });
 
   const allSorted = [...GEI.countries].sort((a,b)=>(b.index_score||0)-(a.index_score||0));
@@ -535,7 +868,18 @@ function renderCambodiaPage() {
   charts.camTrend = new Chart(camTrendCtx, {
     type:'line',
     data:{ labels:YEARS, datasets:[{ label:'Cambodia', data:tData, borderColor:'rgba(26,155,95,1)', backgroundColor:'rgba(26,155,95,0.12)', fill:true, tension:0.4, borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#0d6e42', pointBorderColor:'#fff', pointBorderWidth:1.5 }] },
-    options:{ scales:{y:{min:0,max:60,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}}, plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`Score: ${ctx.parsed.y}/100`}}}, responsive:true, maintainAspectRatio:true }
+    options:{ 
+      scales:{
+        y:{min:0,max:60,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},
+        x:{grid:{display:false},ticks:{font:{family:'Poppins',size:8}}}
+      }, 
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>`Score: ${ctx.parsed.y}/100`}}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true 
+    }
   });
 
   const neighbors = ['Cambodia','Thailand','Vietnam','Singapore','Malaysia','Myanmar'];
@@ -546,7 +890,45 @@ function renderCambodiaPage() {
   charts.camCompare = new Chart(camCmpCtx, {
     type:'bar',
     data:{ labels:nLabels, datasets:[{ label:'Index Score', data:nData, backgroundColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,0.8)':'rgba(26,107,181,0.5)'), borderColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,1)':'rgba(26,107,181,0.8)'), borderWidth:2, borderRadius:7 }] },
-    options:{ scales:{y:{beginAtZero:true,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},x:{grid:{display:false},ticks:{font:{family:'Poppins',size:9}}}}, plugins:{legend:{display:false}}, responsive:true, maintainAspectRatio:true }
+    options:{ 
+      scales:{
+        y:{
+          beginAtZero:true,
+          max:100,
+          grid:{color:'rgba(26,107,181,0.07)'},
+          ticks:{font:{family:'Poppins',size:8}}
+        },
+        x:{
+          grid:{display:false},
+          ticks:{font:{family:'Poppins',size:9}}
+        }
+      }, 
+      plugins:{
+        legend:{display:false}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true 
+    },
+    plugins: [{
+      id: 'customDataLabels',
+      afterDraw: function(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets[0].data.forEach((value, index) => {
+          if (value !== null && value !== undefined) {
+            const meta = chart.getDatasetMeta(0);
+            const x = meta.data[index].x;
+            const y = meta.data[index].y;
+            ctx.save();
+            ctx.font = 'bold 10px Poppins';
+            ctx.fillStyle = '#1a2540';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(value, x, y - 6);
+            ctx.restore();
+          }
+        });
+      }
+    }]
   });
 
   const peers = ['Cambodia','Thailand','Vietnam','Malaysia'];
@@ -556,7 +938,26 @@ function renderCambodiaPage() {
   charts.camRadar = new Chart(camRadarCtx, {
     type:'radar',
     data:{ labels:PILLAR_LABELS, datasets:peers.map((pName,i)=>{ const c=GEI.countries.find(x=>x.country===pName); if(!c) return null; return { label:pName, data:PILLARS.map(p=>c[p]||0), backgroundColor:`${peerColors[i]},0.12)`, borderColor:`${peerColors[i]},1)`, pointBackgroundColor:`${peerColors[i]},1)`, borderWidth:2, pointRadius:3 }; }).filter(Boolean) },
-    options:{ scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{family:'Poppins',size:8}},pointLabels:{font:{family:'Poppins',size:9,weight:'600'}}}}, plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, responsive:true, maintainAspectRatio:true, aspectRatio: window.innerWidth>768 ? 3:1.1 }
+    options:{ 
+      scales:{
+        r:{
+          min:0,
+          max:100,
+          ticks:{
+            stepSize:20,
+            font:{family:'Poppins',size:8},
+            callback: function() { return ''; }
+          },
+          pointLabels:{font:{family:'Poppins',size:9,weight:'600'}}
+        }
+      }, 
+      plugins:{
+        legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}
+      }, 
+      responsive:true, 
+      maintainAspectRatio:true, 
+      aspectRatio: window.innerWidth>768 ? 3:1.1 
+    }
   });
 }
 

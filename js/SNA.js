@@ -28,11 +28,99 @@ const CITY_SHORT = {
   'Battambang': 'BB',
 };
 
+
 // ─── CHART DEFAULTS ───
 Chart.defaults.font.family = 'Poppins';
 Chart.defaults.color = '#3a5070';
 
+// ─── CHART PLUGINS ───
+// Plugin for center text in doughnut charts only
+const doughnutCenterText = {
+  id: 'doughnutCenterText',
+  afterDraw(chart) {
+    if (chart.config.type !== 'doughnut') return;
+    const { ctx, chartArea: { width, height, top, left } } = chart;
+    const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    
+    ctx.save();
+    ctx.font = 'bold 22px Poppins';
+    ctx.fillStyle = '#1a2540';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(total, centerX, centerY - 5);
+    
+    ctx.font = '11px Poppins';
+    ctx.fillStyle = '#6b8aaa';
+    ctx.fillText('Total', centerX, centerY + 18);
+    ctx.restore();
+  }
+};
+
+Chart.register(doughnutCenterText);
+
+// Plugin for data labels - only on specific bar charts
+const dataLabelsPlugin = {
+  id: 'dataLabels',
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    
+    // Only apply to bar charts that have the dataLabels flag
+    if (chart.config.type !== 'bar' || !chart.config.options.plugins.dataLabels?.display) return;
+    
+    chart.data.datasets.forEach((dataset, datasetIndex) => {
+      const meta = chart.getDatasetMeta(datasetIndex);
+      if (!meta.hidden) {
+        meta.data.forEach((element, index) => {
+          const isStacked = chart.options.scales?.x?.stacked || chart.options.scales?.y?.stacked;
+          
+          if (isStacked) {
+            // For stacked charts, show total only on last dataset
+            if (datasetIndex === chart.data.datasets.length - 1) {
+              let total = 0;
+              chart.data.datasets.forEach((ds, i) => {
+                const m = chart.getDatasetMeta(i);
+                if (!m.hidden && m.data[index]) {
+                  total += (ds.data[index] || 0);
+                }
+              });
+              drawLabel(ctx, element, total);
+            }
+          } else {
+            // For grouped bars
+            const value = dataset.data[index] || 0;
+            if (value > 0) {
+              drawLabel(ctx, element, value);
+            }
+          }
+        });
+      }
+    });
+    
+    function drawLabel(ctx, element, value) {
+      const isHorizontal = chart.options.indexAxis === 'y';
+      ctx.save();
+      ctx.font = 'bold 10px Poppins';
+      ctx.fillStyle = '#1a2540';
+      ctx.textAlign = isHorizontal ? 'left' : 'center';
+      ctx.textBaseline = isHorizontal ? 'middle' : 'bottom';
+      
+      if (isHorizontal) {
+        ctx.fillText(value, element.x + 6, element.y);
+      } else {
+        ctx.fillText(value, element.x, element.y - 4);
+      }
+      ctx.restore();
+    }
+  }
+};
+
+Chart.register(dataLabelsPlugin);
+
 function chartDefaults(type, labels, datasets, extraOpts = {}) {
+  const isDoughnut = type === 'doughnut';
+  
   return {
     type,
     data: { labels, datasets },
@@ -40,8 +128,18 @@ function chartDefaults(type, labels, datasets, extraOpts = {}) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { labels: { font: { family:'Poppins', size:11 }, boxWidth:12, padding:12 } },
-        tooltip: { titleFont:{ family:'Poppins', weight:'700' }, bodyFont:{ family:'Poppins' } },
+        legend: { 
+          labels: { 
+            font: { family:'Poppins', size:11 }, 
+            boxWidth:12, 
+            padding:12 
+          } 
+        },
+        tooltip: { 
+          titleFont:{ family:'Poppins', weight:'700' }, 
+          bodyFont:{ family:'Poppins' } 
+        },
+        dataLabels: { display: false } // Default off
       },
       ...extraOpts
     }
@@ -142,6 +240,7 @@ function renderOverviewPage() {
   }).join('');
 
   // City Overview Bar Chart
+  // City Overview Bar Chart - WITH labels
   destroyChart('cityOverview');
   const ctx1 = document.getElementById('cityOverviewChart').getContext('2d');
   charts['cityOverview'] = new Chart(ctx1, chartDefaults('bar',
@@ -151,18 +250,39 @@ function renderOverviewPage() {
       { label:'Registered', data: overall.map(r => r['Rigistered']||0), backgroundColor: [C_GREEN+'55', C_BLUE+'55', C_YELLOW+'55'], borderRadius:6 },
       { label:'ESO Support', data: [esoFromCity('Phnom Penh'), esoFromCity('Siem Reap'), esoFromCity('Battambang')], backgroundColor:[C_GREEN+'33',C_BLUE+'33',C_YELLOW+'33'], borderRadius:6 },
     ],
-    { scales: { y:{ beginAtZero:true, grid:{color:'rgba(26,107,181,0.07)'} }, x:{grid:{display:false}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales: { y:{ beginAtZero:true, grid:{color:'rgba(26,107,181,0.07)'} }, x:{grid:{display:false}} } 
+    }
   ));
 
   // Business Type Donut
+  // Business Type Donut - Updated with better centering
   const typeMap = {};
   ents.forEach(e => { const t = e.business_type || 'Unknown'; typeMap[t] = (typeMap[t]||0)+1; });
   destroyChart('businessType');
   const ctx2 = document.getElementById('businessTypeChart').getContext('2d');
   charts['businessType'] = new Chart(ctx2, chartDefaults('doughnut',
     Object.keys(typeMap),
-    [{ data: Object.values(typeMap), backgroundColor: [C_BLUE, C_GREEN, C_YELLOW, C_ORANGE, C_RED, '#9b59b6'], hoverOffset:6 }],
-    { plugins:{ legend:{ position:'right', labels:{ font:{family:'Poppins',size:10}, boxWidth:11 } } } }
+    [{ 
+      data: Object.values(typeMap), 
+      backgroundColor: [C_BLUE, C_GREEN, C_YELLOW, C_ORANGE, C_RED, '#9b59b6'], 
+      hoverOffset:6,
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }],
+    { 
+      plugins:{ 
+        legend:{ 
+          position:'bottom', 
+          labels:{ 
+            font:{family:'Poppins',size:10}, 
+            boxWidth:11 
+          } 
+        } 
+      },
+      cutout: '65%'
+    }
   ));
 
   // Stage Chart
@@ -175,6 +295,7 @@ function renderOverviewPage() {
     overall.reduce((s,r) => s+(r['Early &Operational Stage']||0),0),
     overall.reduce((s,r) => s+(r['Scaling Stage']||0),0),
   ];
+  // Stage Chart
   destroyChart('stage');
   const ctx3 = document.getElementById('stageChart').getContext('2d');
   charts['stage'] = new Chart(ctx3, chartDefaults('bar',
@@ -182,12 +303,16 @@ function renderOverviewPage() {
     [{ label:'Entrepreneurs', data:stageData, backgroundColor:[C_GREEN+'cc',C_BLUE+'cc',C_YELLOW+'cc'], borderRadius:8 }],
     {
       indexAxis:'y',
-      scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false}} },
-      plugins:{ legend:{display:false} }
+      plugins:{ 
+        legend:{display:false},
+        dataLabels: { display: true }  // ADD THIS LINE
+      },
+      scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false}} }
     }
   ));
 
   // Registration Chart
+  // Registration Chart - WITH labels (stacked - shows total)
   destroyChart('registration');
   const ctx4 = document.getElementById('registrationChart').getContext('2d');
   charts['registration'] = new Chart(ctx4, chartDefaults('bar',
@@ -197,10 +322,14 @@ function renderOverviewPage() {
       { label:'Not Registered', data: overall.map(r => r['Not Registered']||0), backgroundColor:C_RED+'88', borderRadius:5 },
       { label:'No Answer',      data: overall.map(r => r['No Answer']||0), backgroundColor:C_YELLOW+'88', borderRadius:5 },
     ],
-    { scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } 
+    }
   ));
 
   // Network Engagement Chart
+  // Network Engagement Chart - WITH labels
   destroyChart('networkEngagement');
   const ctx5 = document.getElementById('networkEngagementChart').getContext('2d');
   charts['networkEngagement'] = new Chart(ctx5, chartDefaults('bar',
@@ -210,18 +339,34 @@ function renderOverviewPage() {
       { label:'Peer Exchange',       data: overall.map(r => r['Peer Exchange']||0),       backgroundColor:C_BLUE+'cc',  borderRadius:5 },
       { label:'External Funding',    data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:5 },
     ],
-    { scales:{ x:{grouped:true,grid:{display:false}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales:{ x:{grouped:true,grid:{display:false}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } 
+    }
   ));
 
-  // Gender Chart
+  // Gender Chart - Updated with better centering
   const genderMap = {};
   ents.forEach(e => { const g = e.gender||'Unknown'; genderMap[g]=(genderMap[g]||0)+1; });
   destroyChart('gender');
   const ctx6 = document.getElementById('genderChart').getContext('2d');
   charts['gender'] = new Chart(ctx6, chartDefaults('doughnut',
     Object.keys(genderMap),
-    [{ data:Object.values(genderMap), backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc','#9b59b6cc'], hoverOffset:6 }],
-    { plugins:{ legend:{ position:'right' } } }
+    [{ 
+      data:Object.values(genderMap), 
+      backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc','#9b59b6cc'], 
+      hoverOffset:6,
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }],
+    { 
+      plugins:{ 
+        legend:{ 
+          position:'bottom'
+        } 
+      },
+      cutout: '65%'
+    }
   ));
 
   // Sector Chart
@@ -235,8 +380,11 @@ function renderOverviewPage() {
     [{ label:'Entrepreneurs', data:topSectors.map(s=>s[1]), backgroundColor: topSectors.map((_,i)=>[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_GREEN_L,C_BLUE_L,C_RED,'#9b59b6'][i%8]+'cc'), borderRadius:5 }],
     {
       indexAxis:'y',
-      scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false},ticks:{font:{size:10}}} },
-      plugins:{ legend:{display:false} }
+      plugins: { 
+        legend: { display: false },
+        dataLabels: { display: true }  // ADD THIS LINE
+      },
+      scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false},ticks:{font:{size:10}}} }
     }
   ));
 }
@@ -333,12 +481,31 @@ function renderFundingPage() {
   const types   = funding.map(r => r['Type of External Funding']);
 
   // Overall Donut
+  // Overall Donut - Updated with better centering
   destroyChart('fundingOverall');
   const ctx1 = document.getElementById('fundingOverallChart').getContext('2d');
   charts['fundingOverall'] = new Chart(ctx1, chartDefaults('doughnut',
     types,
-    [{ data: funding.map(r => r['Overall']||0), backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc',C_ORANGE+'cc',C_RED+'cc'], hoverOffset:8 }],
-    { plugins:{ legend:{ position:'right', labels:{font:{family:'Poppins',size:10},boxWidth:11} } } }
+    [{ 
+      data: funding.map(r => r['Overall']||0), 
+      backgroundColor:[C_BLUE+'cc',C_GREEN+'cc',C_YELLOW+'cc',C_ORANGE+'cc',C_RED+'cc'], 
+      hoverOffset:8,
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }],
+    { 
+      plugins:{ 
+        legend:{ 
+          position:'bottom',
+          labels:{
+            font:{family:'Poppins',size:10},
+            boxWidth:11,
+            padding:15
+          } 
+        } 
+      },
+      cutout: '65%' // Makes the center hole larger
+    }
   ));
 
   // By City Bar
@@ -351,35 +518,35 @@ function renderFundingPage() {
       { label:'Siem Reap',  data: funding.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
       { label:'Battambang', data: funding.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
     ],
-    { indexAxis:'y', scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false},ticks:{font:{size:10}}} } }
+    { 
+      indexAxis:'y', 
+      plugins: { dataLabels: { display: true } },  // ADD THIS LINE
+      scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false},ticks:{font:{size:10}}} } 
+    }
   ));
 
-  // Stacked
+  // Stacked - WITH labels (shows total)
   destroyChart('fundingStacked');
   const ctx3 = document.getElementById('fundingStackedChart').getContext('2d');
+  const cities = ['Phnom Penh','Siem Reap','Battambang'];
   charts['fundingStacked'] = new Chart(ctx3, chartDefaults('bar',
-    ['Phnom Penh','Siem Reap','Battambang'],
+    cities,
     types.map((t,i) => ({
       label: truncate(t,20),
-      data: funding.map(r => r[['Phnom Penh','Siem Reap','Battambang'][0]]||0), // placeholder approach below
+      data: cities.map(city => {
+        const row = funding.find(r => r['Type of External Funding'] === t);
+        return row ? (row[city]||0) : 0;
+      }),
       backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE,C_RED][i]+'cc',
-      borderRadius:4
+      borderRadius:4,
+      stack:'stack0'
     })),
-    { scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(53, 42, 42, 0.07)'}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } 
+    }
   ));
-  // Update stacked properly
-  const cities = ['Phnom Penh','Siem Reap','Battambang'];
-  charts['fundingStacked'].data.datasets = types.map((t,i) => ({
-    label: truncate(t, 20),
-    data: cities.map(city => {
-      const row = funding.find(r => r['Type of External Funding'] === t);
-      return row ? (row[city]||0) : 0;
-    }),
-    backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE,C_RED][i]+'cc',
-    borderRadius:4,
-    stack:'stack0'
-  }));
-  charts['fundingStacked'].update();
+  
 
   // Funding by Business Type (from entrepreneur records)
   const ents = SNA.entrepreneurs;
@@ -394,7 +561,10 @@ function renderFundingPage() {
       { label:'Funded',    data: fundByType,   backgroundColor:C_GREEN+'cc', borderRadius:5 },
       { label:'Not Funded',data: totalByType.map((t,i) => t - fundByType[i]), backgroundColor:C_RED+'44', borderRadius:5 },
     ],
-    { scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } 
+    }
   ));
 
   // Insights
@@ -428,7 +598,10 @@ function renderMentorshipPage() {
     [{ label:'Overall', data: benefits.map(r => r['Overall']||0), backgroundColor:[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_RED,C_GREEN_L,C_BLUE_L,'#9b59b6'].map(c=>c+'cc'), borderRadius:6 }],
     {
       indexAxis:'y',
-      plugins:{ legend:{display:false} },
+      plugins:{ 
+        legend:{display:false},
+        dataLabels: { display: true }  // ADD THIS LINE
+      },
       scales:{ x:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}}, y:{grid:{display:false},ticks:{font:{size:10}}} }
     }
   ));
@@ -447,6 +620,7 @@ function renderMentorshipPage() {
   ));
 
   // Network Compare (Mentorship vs Peer vs Funding by city)
+  // Network Compare - WITH labels
   destroyChart('networkCompare');
   const ctx3 = document.getElementById('networkCompareChart').getContext('2d');
   charts['networkCompare'] = new Chart(ctx3, chartDefaults('bar',
@@ -456,17 +630,36 @@ function renderMentorshipPage() {
       { label:'Peer Exchange', data: overall.map(r => r['Peer Exchange']||0), backgroundColor:C_BLUE+'cc', borderRadius:4 },
       { label:'External Funding', data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
     ],
-    { scales:{ x:{grid:{display:false}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
+    { 
+      plugins: { dataLabels: { display: true } },
+      scales:{ x:{grid:{display:false}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } 
+    }
   ));
 
-  // Mentorship Rate by City (%)
+  // Mentorship Rate by City (%) - Updated with better centering
   const mentorPcts = overall.map(r => Math.round((r['Mentorship received']||0) / r['Total Entrepreneurs'] * 100));
   destroyChart('mentorRate');
   const ctx4 = document.getElementById('mentorRateChart').getContext('2d');
   charts['mentorRate'] = new Chart(ctx4, chartDefaults('doughnut',
     ['Phnom Penh ('+mentorPcts[0]+'%)', 'Siem Reap ('+mentorPcts[1]+'%)', 'Battambang ('+mentorPcts[2]+'%)'],
-    [{ data: mentorPcts, backgroundColor:[C_GREEN+'cc',C_BLUE+'cc',C_YELLOW+'cc'], hoverOffset:6 }],
-    { plugins:{ legend:{ position:'bottom', labels:{font:{family:'Poppins',size:10}} } } }
+    [{ 
+      data: mentorPcts.map(p => Number(p)), // Ensure numbers
+      backgroundColor:[C_GREEN+'cc',C_BLUE+'cc',C_YELLOW+'cc'], 
+      hoverOffset:6,
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }],
+    { 
+      plugins:{ 
+        legend:{ 
+          position:'bottom', 
+          labels:{
+            font:{family:'Poppins',size:10}
+          } 
+        } 
+      },
+      cutout: '65%'
+    }
   ));
 
   // Mentor insights

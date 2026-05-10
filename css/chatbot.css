@@ -410,7 +410,9 @@ body::before {
   .chat-input {
     font-size: 16px;
   }
-  
+  .hp-search input {
+    font-size: 16px; /* Only 16px on mobile to prevent zoom */
+  }
   /* You might also want to adjust the placeholder and other elements */
   .chat-input::placeholder {
     font-size: 14px;  /* Keep placeholder slightly smaller if desired */
