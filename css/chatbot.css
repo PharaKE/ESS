@@ -76,7 +76,7 @@ body::before {
 .ns-item:hover  { color:#fff; background:rgba(255,255,255,0.06); border-left-color:var(--green-light); }
 .ns-item.active { color:#fff; background:rgba(26,155,95,0.18); border-left-color:var(--green-light); }
 .ns-item svg    { flex-shrink:0; stroke:currentColor; }
-.ns-footer { padding:10px 16px; border-top:1px solid rgba(255,255,255,0.07); }
+.ns-footer { padding:16.5px 16px; border-top:1px solid rgba(255,255,255,0.07); }
 .ns-footer p { font-size:8.5px; color:rgba(255,255,255,0.28); line-height:1.6; }
 
 /* ════ COLUMN 2: CHAT HISTORY PANEL ════ */
@@ -97,7 +97,7 @@ body::before {
 }
 .hp-header {
   display:flex; align-items:center; justify-content:space-between;
-  padding:20px 18px 14px; border-bottom:1px solid #edf1f8;
+  padding:24.5px 18px 14px; border-bottom:1px solid #edf1f8;
 }
 .hp-title { font-size:14px; font-weight:700; color:var(--text-dark); }
 .new-chat-btn {
@@ -164,7 +164,7 @@ body::before {
 
 /* ── Topbar ── */
 .chat-topbar {
-  display:flex; align-items:center; gap:12px; padding:12px 24px;
+  display:flex; align-items:center; gap:12px; padding:10px 24px;
   background:#fff; backdrop-filter:none;
   border-bottom:1px solid #edf1f8;
   box-shadow:0 1px 4px rgba(26,107,181,0.04);
