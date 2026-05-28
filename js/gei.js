@@ -409,14 +409,6 @@ function renderIncomeChart(data) {
         const centerX = width / 2;
         const centerY = height / 2;
         
-<<<<<<< HEAD
-        // Draw white circle background for better contrast
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, 45, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fill();
-=======
->>>>>>> 9f9804e (change a bit)
         
         // Draw the average score
         ctx.font = 'bold 28px Poppins';
