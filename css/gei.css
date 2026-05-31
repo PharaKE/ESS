@@ -547,7 +547,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   }
 
   /* ── CANVAS CHART HEIGHT ── */
-  canvas { max-height:260px; }
+  canvas { max-height:3200px; }
 
 }
 

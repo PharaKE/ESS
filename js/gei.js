@@ -316,7 +316,7 @@ function renderRegionChart(data) {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1
+      aspectRatio:window.innerWidth>768?2:1.5
     },
     plugins: [{
       id: 'customDataLabels',
@@ -388,7 +388,7 @@ function renderIncomeChart(data) {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1,
+      aspectRatio:window.innerWidth>768?2:1.5,
       cutout: '65%',
       // Ensure hover interactions work
       hover: {
@@ -491,7 +491,7 @@ function renderDistribution(data) {
       },
       responsive:true,
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1
+      aspectRatio:window.innerWidth>768?2:1.5
     },
     plugins: [{
       id: 'customDataLabels',
@@ -703,7 +703,7 @@ function updateComparison() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1
+      aspectRatio:window.innerWidth>768?2:1.5
     }
   });
 
@@ -721,7 +721,7 @@ function updateComparison() {
       plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1
+      aspectRatio:window.innerWidth>768?2:1.5
     }
   });
 
@@ -749,30 +749,8 @@ function updateComparison() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?3:2.1
+      aspectRatio:window.innerWidth>768?3:1.5
     },
-    plugins: [{
-      id: 'customDataLabels',
-      afterDraw: function(chart) {
-        const ctx = chart.ctx;
-        chart.data.datasets.forEach((dataset, datasetIndex) => {
-          const meta = chart.getDatasetMeta(datasetIndex);
-          dataset.data.forEach((value, index) => {
-            if (value > 0) {
-              const x = meta.data[index].x;
-              const y = meta.data[index].y;
-              ctx.save();
-              ctx.font = 'bold 9px Poppins';
-              ctx.fillStyle = '#1a2540';
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'bottom';
-              ctx.fillText(value, x, y - 4);
-              ctx.restore();
-            }
-          });
-        });
-      }
-    }]
   });
 }
 
