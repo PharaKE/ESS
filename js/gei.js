@@ -411,16 +411,16 @@ function renderIncomeChart(data) {
         
         
         // Draw the average score
-        ctx.font = 'bold 28px Poppins';
+        ctx.font = 'bold 18px Poppins';
         ctx.fillStyle = '#1a2540';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(totalAvg, centerX, centerY - 8);
         
         // Draw the label
-        ctx.font = '11px Poppins';
+        ctx.font = '9px Poppins';
         ctx.fillStyle = '#6b8aaa';
-        ctx.fillText('Avg Score', centerX, centerY + 18);
+        ctx.fillText('Avg Score', centerX, centerY + 11);
         
         // Restore context state
         ctx.restore();
@@ -810,28 +810,6 @@ function renderInsightsPage() {
       maintainAspectRatio:true, 
       aspectRatio:window.innerWidth>768?3:1.1
     },
-    plugins: [{
-      id: 'customDataLabels',
-      afterDraw: function(chart) {
-        const ctx = chart.ctx;
-        chart.data.datasets.forEach((dataset, datasetIndex) => {
-          const meta = chart.getDatasetMeta(datasetIndex);
-          dataset.data.forEach((value, index) => {
-            if (value > 0) {
-              const x = meta.data[index].x;
-              const y = meta.data[index].y;
-              ctx.save();
-              ctx.font = 'bold 8px Poppins';
-              ctx.fillStyle = '#1a2540';
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'bottom';
-              ctx.fillText(value, x, y - 3);
-              ctx.restore();
-            }
-          });
-        });
-      }
-    }]
   });
 
   const allSorted = [...GEI.countries].sort((a,b)=>(b.index_score||0)-(a.index_score||0));
