@@ -78,7 +78,7 @@ body::after {
 .topbar-title      { font-size:15px; font-weight:700; color:var(--text-dark); }
 .topbar-title span { color:var(--green); }
 .topbar-right      { display:flex; align-items:center; gap:12px; }
-.badge-year   { background:var(--grad-main); color:#fff; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600; }
+.badge-year   { background:var(--grad-main); color:#fff; padding:4px 12px; border-radius:10px; font-size:11px; font-weight:600; }
 .badge-source { font-size:11px; color:var(--text-light); }
 /* ── Pages ── */
 .page        { display:none; padding:18px 24px; }
@@ -111,10 +111,10 @@ body::after {
 .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; margin-bottom:18px; }
 .kpi-card {
   background:var(--glass); backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border); border-radius:16px; padding:20px 22px;
+  border:1px solid var(--glass-border); border-radius:10px; padding:20px 22px;
   box-shadow:var(--glass-shadow); position:relative; overflow:hidden; transition:all 0.3s;
 }
-.kpi-card::before { content:''; position:absolute; inset:0; border-radius:16px; background:var(--grad-card); pointer-events:none; }
+.kpi-card::before { content:''; position:absolute; inset:0; border-radius:10px; background:var(--grad-card); pointer-events:none; }
 .kpi-card:hover   { transform:translateY(-3px); box-shadow:0 12px 36px rgba(26,107,181,0.14); }
 .kpi-icon         { font-size:26px; margin-bottom:8px; }
 .kpi-label        { font-size:10.5px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
@@ -126,7 +126,7 @@ body::after {
 /* ── Glass Card ── */
 .glass-card {
   background:var(--glass); backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border); border-radius:17px;
+  border:1px solid var(--glass-border); border-radius:10px;
   box-shadow:var(--glass-shadow); padding:13px 17px; transition:all 0.3s;
   
   
@@ -169,7 +169,7 @@ body::after {
 .rank-badge.top3 { background:rgba(245,230,66,0.30); color:#7a6800; }
 /* ── Country Detail ── */
 .detail-hero {
-  background:var(--grad-main); border-radius:14px; padding:18px 24px; color:#fff;
+  background:var(--grad-main); border-radius:10px; padding:18px 24px; color:#fff;
   margin-bottom:14px; position:relative; overflow:hidden;
 }
 .detail-hero::before { content:''; position:absolute; right:-40px; top:-40px; width:150px; height:150px; border-radius:50%; background:rgba(255,255,255,0.06); }
@@ -185,17 +185,17 @@ body::after {
 .pillar-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:9px; margin-bottom:13px; }
 .pillar-card {
   background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--glass-border);
-  border-radius:11px; padding:11px 8px; text-align:center;
+  border-radius:10px; padding:11px 8px; text-align:center;
   box-shadow:var(--glass-shadow); position:relative; overflow:hidden; transition:all 0.3s;
 }
 .pillar-card:hover { transform:translateY(-3px); }
-.pillar-card::before { content:''; position:absolute; inset:0; border-radius:11px; background:var(--grad-card); pointer-events:none; }
+.pillar-card::before { content:''; position:absolute; inset:0; border-radius:10px; background:var(--grad-card); pointer-events:none; }
 .pillar-name  { font-size:9px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.7px; margin-bottom:5px; }
 .pillar-value { font-size:22px; font-weight:800; color:var(--green-dark); line-height:1; margin-bottom:3px; }
 .pillar-icon  { font-size:17px; margin-bottom:4px; }
 /* ── Insight page ── */
 .insight-hero {
-  background:var(--grad-main); border-radius:16px; padding:26px 30px; color:#fff;
+  background:var(--grad-main); border-radius:10px; padding:26px 30px; color:#fff;
   margin-bottom:18px; position:relative; overflow:hidden;
 }
 .insight-hero::before { content:''; position:absolute; right:-60px; top:-60px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.05); }
@@ -203,11 +203,11 @@ body::after {
 .insight-hero h1  { font-size:23px; font-weight:900; margin-bottom:5px; position:relative; z-index:1; }
 .insight-hero p   { font-size:12px; opacity:0.85; max-width:600px; line-height:1.7; position:relative; z-index:1; }
 .insight-hero .meta { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; position:relative; z-index:1; }
-.insight-meta-badge { background:rgba(255,255,255,0.15); padding:3px 10px; border-radius:20px; font-size:10.5px; font-weight:600; }
+.insight-meta-badge { background:rgba(255,255,255,0.15); padding:3px 10px; border-radius:10px; font-size:10.5px; font-weight:600; }
 .finding-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
 .finding-card {
   background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--glass-border);
-  border-radius:13px; padding:15px; box-shadow:var(--glass-shadow); transition:all 0.3s;
+  border-radius:10px; padding:15px; box-shadow:var(--glass-shadow); transition:all 0.3s;
 }
 .finding-card:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(26,107,181,0.13); }
 .finding-num        { font-size:30px; font-weight:900; line-height:1; margin-bottom:5px; }
@@ -218,7 +218,7 @@ body::after {
 .finding-text       { font-size:10.5px; color:var(--text-mid); line-height:1.65; }
 .key-takeaway {
   background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--glass-border);
-  border-radius:13px; padding:14px 18px; box-shadow:var(--glass-shadow); margin-bottom:11px;
+  border-radius:10px; padding:14px 18px; box-shadow:var(--glass-shadow); margin-bottom:11px;
   display:flex; gap:13px; align-items:flex-start; transition:all 0.3s;
 }
 .key-takeaway:hover { transform:translateX(4px); }
@@ -238,7 +238,7 @@ body::after {
 .comparison-selectors { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px; align-items:flex-end; }
 .country-selector-card {
   background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--glass-border);
-  border-radius:11px; padding:11px 13px; box-shadow:var(--glass-shadow); display:flex; flex-direction:column; gap:5px;
+  border-radius:10px; padding:11px 13px; box-shadow:var(--glass-shadow); display:flex; flex-direction:column; gap:5px;
 }
 .country-selector-label    { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
 .country-selector-label.c1 { color:var(--green); }
@@ -275,7 +275,7 @@ body::after {
   display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;
 }
 .pillar-tab {
-  padding:7px 14px; border-radius:22px; border:1.5px solid rgba(26,107,181,0.18);
+  padding:7px 14px; border-radius:10px; border:1.5px solid rgba(26,107,181,0.18);
   background:rgba(255,255,255,0.65); font-family:'Poppins',sans-serif;
   font-size:11px; font-weight:600; color:var(--text-mid); cursor:pointer;
   transition:all 0.18s; white-space:nowrap;
@@ -349,7 +349,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .topbar-title span { color:var(--green); }
   .badge-source { display:none; }
   .badge-year {
-    font-size:10px; padding:4px 10px; border-radius:20px;
+    font-size:10px; padding:4px 10px; border-radius:10px;
     background:var(--grad-main); color:#fff; font-weight:700;
     letter-spacing:0.2px; white-space:nowrap;
   }
@@ -394,13 +394,13 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .filter-label { font-size:9px; letter-spacing:1.2px; }
   .filter-select {
     min-width:unset; width:100%; padding:10px 28px 10px 12px;
-    font-size:12px; border-radius:11px;
+    font-size:12px; border-radius:10px;
     background-color:rgba(255,255,255,0.9);
     box-shadow:0 2px 8px rgba(26,107,181,0.08);
   }
   .filter-btn {
     width:100%; padding:11px; font-size:13px;
-    border-radius:11px; letter-spacing:0.3px;
+    border-radius:10px; letter-spacing:0.3px;
   }
 
   /* ── KPI CARDS — 2×2 grid ── */
@@ -409,7 +409,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
     gap:10px; margin-bottom:14px;
   }
   .kpi-card {
-    padding:15px 13px; border-radius:18px;
+    padding:15px 13px; border-radius:10px;
     box-shadow:0 4px 20px rgba(26,107,181,0.11);
   }
   .kpi-icon { font-size:22px; margin-bottom:6px; }
@@ -422,7 +422,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
 
   /* ── GLASS CARDS ── */
   .glass-card {
-    padding:14px 14px; border-radius:18px;
+    padding:14px 14px; border-radius:10px;
     box-shadow:0 4px 20px rgba(26,107,181,0.09);
   }
   .card-title { font-size:12.5px; margin-bottom:11px; }
@@ -435,7 +435,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .full-width { margin-bottom:10px; }
 
   /* ── WORLD MAP ── */
-  #world-map { height:210px; border-radius:12px; }
+  #world-map { height:210px; border-radius:10px; }
 
   /* ── TOP TABLE → compact ── */
   #top-table th, #top-table td { padding:7px 9px; font-size:11px; }
@@ -451,13 +451,13 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .pillar-tab-bar::-webkit-scrollbar-thumb { background:rgba(26,107,181,0.15); border-radius:2px; }
   .pillar-tab {
     flex-shrink:0; scroll-snap-align:start;
-    font-size:10.5px; padding:6px 13px; border-radius:20px;
+    font-size:10.5px; padding:6px 13px; border-radius:10px;
   }
 
   /* ── DATA TABLE ── */
   .table-container {
     overflow-x:auto; -webkit-overflow-scrolling:touch;
-    border-radius:12px; margin:0 -2px;
+    border-radius:10px; margin:0 -2px;
   }
   .data-table { min-width:580px; font-size:11px; }
   .data-table th {
@@ -472,14 +472,14 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
     display:grid; grid-template-columns:repeat(3,1fr);
     gap:8px; margin-bottom:12px;
   }
-  .pillar-card { padding:12px 8px; border-radius:14px; }
+  .pillar-card { padding:12px 8px; border-radius:10px; }
   .pillar-icon { font-size:18px; margin-bottom:4px; }
   .pillar-name { font-size:8.5px; letter-spacing:0.5px; }
   .pillar-value { font-size:20px; }
 
   /* ── DETAIL HERO ── */
   .detail-hero {
-    padding:18px 16px; border-radius:18px;
+    padding:18px 16px; border-radius:10px;
     margin-bottom:12px;
   }
   .detail-hero::before, .detail-hero::after { display:none; }
@@ -503,7 +503,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
 
   /* ── INSIGHT HERO ── */
   .insight-hero {
-    padding:20px 16px; border-radius:18px;
+    padding:20px 16px; border-radius:10px;
     margin-bottom:16px;
   }
   .insight-hero::before, .insight-hero::after { display:none; }
@@ -514,14 +514,14 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
 
   /* ── FINDING GRID → single col ── */
   .finding-grid { grid-template-columns:1fr; gap:10px; }
-  .finding-card { padding:14px; border-radius:14px; }
+  .finding-card { padding:14px; border-radius:10px; }
   .finding-num { font-size:26px; }
   .finding-title { font-size:13px; }
   .finding-text { font-size:11px; }
 
   /* ── KEY TAKEAWAYS ── */
   .key-takeaway {
-    padding:13px 14px; border-radius:14px; margin-bottom:8px;
+    padding:13px 14px; border-radius:10px; margin-bottom:8px;
     gap:11px;
   }
   .key-takeaway:hover { transform:none; }
@@ -533,7 +533,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
     display:grid; grid-template-columns:1fr;
     gap:10px; margin-bottom:14px;
   }
-  .country-selector-card { padding:12px 13px; border-radius:14px; }
+  .country-selector-card { padding:12px 13px; border-radius:10px; }
   #cmp-kpi-row { grid-template-columns:1fr !important; gap:10px; }
 
   /* ── LEAGUE ITEMS ── */
@@ -547,7 +547,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   }
 
   /* ── CANVAS CHART HEIGHT ── */
-  canvas { max-height:3200px; }
+  canvas { max-height:420px; }
 
 }
 
@@ -577,7 +577,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .mob-nav-item {
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     flex:1; gap:3px; padding:6px 4px; border:none; background:none;
-    cursor:pointer; border-radius:12px; margin:6px 2px;
+    cursor:pointer; border-radius:10px; margin:6px 2px;
     transition:all 0.18s cubic-bezier(0.34,1.56,0.64,1);
     text-decoration:none; -webkit-tap-highlight-color:transparent;
     position:relative;

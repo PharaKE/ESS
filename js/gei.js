@@ -316,7 +316,7 @@ function renderRegionChart(data) {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.5
+      aspectRatio:window.innerWidth>768?2:1.3
     },
     plugins: [{
       id: 'customDataLabels',
@@ -388,7 +388,7 @@ function renderIncomeChart(data) {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.5,
+      aspectRatio:window.innerWidth>768?2:1.3,
       cutout: '65%',
       // Ensure hover interactions work
       hover: {
@@ -457,7 +457,7 @@ function renderPillarRadar(data) {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:2.1
+      aspectRatio:window.innerWidth>768?2:1.3
     }
   });
 }
@@ -491,7 +491,7 @@ function renderDistribution(data) {
       },
       responsive:true,
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.5
+      aspectRatio:window.innerWidth>768?2:1.3
     },
     plugins: [{
       id: 'customDataLabels',
@@ -619,7 +619,7 @@ function showCountryDetail() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.1
+      aspectRatio:window.innerWidth>768?2:1.3
     }
   });
 
@@ -648,7 +648,7 @@ function showCountryDetail() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.1
+      aspectRatio:window.innerWidth>768?2:1.3
     }
   });
 }
@@ -672,7 +672,7 @@ function updateComparison() {
     const rank = allSorted.findIndex(x=>x.country===c.country)+1;
     const incColor = (INCOME_COLORS[c.income]||INCOME_COLORS['Low income']).base;
     const scoreColor = ['var(--green-dark)','var(--blue-dark)','#8a6800'][i];
-    kpiHtml += `<div class="kpi-card" style="border-top:3px solid ${scoreColor}">
+    kpiHtml += `<div class="kpi-card">
       <div class="kpi-label" style="font-size:12px;font-weight:700;color:var(--text-dark);text-transform:none;letter-spacing:0">${c.country}</div>
       <div class="kpi-value" style="font-size:44px;color:${scoreColor};margin:6px 0">${c.index_score}</div>
       <div class="kpi-sub" style="font-size:12px">Rank <strong>#${rank}</strong> of 137</div>
@@ -703,7 +703,7 @@ function updateComparison() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.5
+      aspectRatio:window.innerWidth>768?2:1.3
     }
   });
 
@@ -721,7 +721,7 @@ function updateComparison() {
       plugins:{legend:{position:'bottom',labels:{font:{family:'Poppins',size:10}}}}, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?2:1.5
+      aspectRatio:window.innerWidth>768?2:1.3
     }
   });
 
@@ -749,7 +749,7 @@ function updateComparison() {
       }, 
       responsive:true, 
       maintainAspectRatio:true, 
-      aspectRatio:window.innerWidth>768?3:1.5
+      aspectRatio:window.innerWidth>768?3:1.3
     },
   });
 }
