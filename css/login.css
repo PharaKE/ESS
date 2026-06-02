@@ -47,9 +47,7 @@ body {
   animation: orb3 22s ease-in-out infinite;
 }
 .bg-grid {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(26,107,181,.07) 1px, transparent 1px);
-  background-size: 28px 28px;
+  display: none;
 }
 @keyframes orb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(28px,-22px)} }
 @keyframes orb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-22px,28px)} }
