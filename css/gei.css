@@ -435,7 +435,7 @@ th.pillar-col-highlight { background:linear-gradient(90deg,#c2e8d4,#c2dcf4) !imp
   .full-width { margin-bottom:10px; }
 
   /* ── WORLD MAP ── */
-  #world-map { height:210px; border-radius:10px; }
+  #world-map { height:280px; border-radius:10px; }
 
   /* ── TOP TABLE → compact ── */
   #top-table th, #top-table td { padding:7px 9px; font-size:11px; }

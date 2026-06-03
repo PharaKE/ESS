@@ -279,7 +279,7 @@ function renderRegionChart(data) {
       label:'Avg Index Score', data:avgs,
       backgroundColor: labels.map((_,i)=>REGION_COLORS[i%REGION_COLORS.length]+'bb'),
       borderColor: labels.map((_,i)=>REGION_COLORS[i%REGION_COLORS.length]),
-      borderWidth:2, borderRadius:7
+      borderWidth:0, borderRadius:1,
     }] },
     options:{ 
       plugins:{
@@ -362,9 +362,10 @@ function renderIncomeChart(data) {
         data: avgs, 
         backgroundColor: incomeColors.map(c=>c+'cc'), 
         borderColor: incomeColors, 
-        borderWidth: 2.5,
+        borderWidth: 0, 
         borderRadius: 0,  // No rounded edges
-        hoverOffset: 8 
+        hoverOffset: 8,
+        spacing:2,
       }] 
     },
     options:{ 
@@ -437,7 +438,7 @@ function renderPillarRadar(data) {
   if (charts.radar) charts.radar.destroy();
   charts.radar = new Chart(ctx, {
     type:'radar',
-    data:{ labels:PILLAR_LABELS, datasets:[{ label:'Average Score', data:avgs, backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'rgba(26,155,95,1)', borderWidth:2, pointRadius:3 }] },
+    data:{ labels:PILLAR_LABELS, datasets:[{ label:'Average Score', data:avgs, backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'rgba(26,155,95,1)', borderWidth:1, pointRadius:2 }] },
     options:{ 
       scales:{
         r:{
@@ -472,7 +473,7 @@ function renderDistribution(data) {
   if(charts.dist) charts.dist.destroy();
   charts.dist=new Chart(ctx,{
     type:'bar',
-    data:{labels,datasets:[{label:'Countries',data:counts,backgroundColor:'rgba(26,107,181,0.55)',borderColor:'rgba(26,107,181,0.8)',borderWidth:2,borderRadius:5}]},
+    data:{labels,datasets:[{label:'Countries',data:counts,backgroundColor:'rgba(26,107,181,0.55)',borderColor:'rgba(26,107,181,0.8)',borderWidth:0,borderRadius:0}]},
     options:{
       plugins:{
         legend:{display:false}
@@ -600,7 +601,7 @@ function showCountryDetail() {
   if (charts.detailRadar) charts.detailRadar.destroy();
   charts.detailRadar = new Chart(rCtx, {
     type:'radar',
-    data:{ labels:PILLAR_LABELS, datasets:[{ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'#1a9b5f', borderWidth:2, pointRadius:4 }] },
+    data:{ labels:PILLAR_LABELS, datasets:[{ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:'rgba(26,155,95,0.18)', borderColor:'rgba(26,155,95,0.9)', pointBackgroundColor:'#1a9b5f', borderWidth:1, pointRadius:2 }] },
     options:{ 
       scales:{
         r:{
@@ -629,7 +630,7 @@ function showCountryDetail() {
   if (charts.detailTrend) charts.detailTrend.destroy();
   charts.detailTrend = new Chart(tCtx, {
     type:'line',
-    data:{ labels:YEARS, datasets:[{ label:c.country, data:trendData, borderColor:'rgba(26,107,181,0.9)', backgroundColor:'rgba(26,107,181,0.10)', fill:true, tension:0.4, borderWidth:2, pointRadius:3 }] },
+    data:{ labels:YEARS, datasets:[{ label:c.country, data:trendData, borderColor:'rgba(26,107,181,0.9)', backgroundColor:'rgba(26,107,181,0.10)', fill:true, tension:0.4, borderWidth:1, pointRadius:3 }] },
     options:{ 
       scales:{
         y:{
@@ -688,7 +689,7 @@ function updateComparison() {
   if (charts.cmpRadar) charts.cmpRadar.destroy();
   charts.cmpRadar = new Chart(rCtx, {
     type:'radar',
-    data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg, borderColor:palette[i].border, pointBackgroundColor:palette[i].border, borderWidth:2, pointRadius:3 })) },
+    data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg, borderColor:palette[i].border, pointBackgroundColor:palette[i].border, borderWidth:1, pointRadius:2 })) },
     options:{ 
       scales:{
         r:{
@@ -712,7 +713,7 @@ function updateComparison() {
   if (charts.cmpTrend) charts.cmpTrend.destroy();
   charts.cmpTrend = new Chart(tCtx, {
     type:'line',
-    data:{ labels:YEARS, datasets:cs.map((c,i)=>{ const hist=GEI.historical[c.country]||{}; return { label:c.country, data:YEARS.map(y=>hist[y]||null), borderColor:palette[i].border, backgroundColor:palette[i].bg, fill:false, tension:0.4, borderWidth:2, pointRadius:3 }; }) },
+    data:{ labels:YEARS, datasets:cs.map((c,i)=>{ const hist=GEI.historical[c.country]||{}; return { label:c.country, data:YEARS.map(y=>hist[y]||null), borderColor:palette[i].border, backgroundColor:palette[i].bg, fill:false, tension:0.4, borderWidth:1, pointRadius:2 }; }) },
     options:{ 
       scales:{
         y:{min:0,max:100,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},
@@ -730,7 +731,7 @@ function updateComparison() {
   if (charts.cmpBar) charts.cmpBar.destroy();
   charts.cmpBar = new Chart(bCtx, {
     type:'bar',
-    data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg.replace('0.15','0.65').replace('0.12','0.65'), borderColor:palette[i].border, borderWidth:2, borderRadius:5 })) },
+    data:{ labels:PILLAR_LABELS, datasets:cs.map((c,i)=>({ label:c.country, data:PILLARS.map(p=>c[p]||0), backgroundColor:palette[i].bg.replace('0.15','0.65').replace('0.12','0.65'), borderColor:palette[i].border, borderWidth:0, borderRadius:0 })) },
     options:{ 
       scales:{
         y:{
@@ -761,7 +762,7 @@ function renderInsightsPage() {
     label:PILLAR_LABELS[pi],
     data:regions.map(r => { const cs=GEI.countries.filter(c=>c.region===r); return cs.length ? Math.round(cs.reduce((s,c)=>s+(c[p]||0),0)/cs.length) : 0; }),
     backgroundColor:['rgba(26,155,95,0.65)','rgba(26,107,181,0.65)','rgba(200,184,0,0.65)','rgba(224,82,82,0.55)','rgba(100,60,200,0.55)'][pi],
-    borderRadius:4
+    borderRadius:0
   }));
   const rpCtx = document.getElementById('regionalPillarChart');
   if (charts.regionalPillar) charts.regionalPillar.destroy();
@@ -818,7 +819,7 @@ function renderCambodiaPage() {
   if (charts.camTrend) charts.camTrend.destroy();
   charts.camTrend = new Chart(camTrendCtx, {
     type:'line',
-    data:{ labels:YEARS, datasets:[{ label:'Cambodia', data:tData, borderColor:'rgba(26,155,95,1)', backgroundColor:'rgba(26,155,95,0.12)', fill:true, tension:0.4, borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#0d6e42', pointBorderColor:'#fff', pointBorderWidth:1.5 }] },
+    data:{ labels:YEARS, datasets:[{ label:'Cambodia', data:tData, borderColor:'rgba(26,155,95,1)', backgroundColor:'rgba(26,155,95,0.12)', fill:true, tension:0.4, borderWidth:1, pointRadius:4, pointBackgroundColor:'#0d6e42', pointBorderColor:'#fff', pointBorderWidth:1 }] },
     options:{ 
       scales:{
         y:{min:0,max:60,grid:{color:'rgba(26,107,181,0.07)'},ticks:{font:{family:'Poppins',size:8}}},
@@ -840,7 +841,7 @@ function renderCambodiaPage() {
   if (charts.camCompare) charts.camCompare.destroy();
   charts.camCompare = new Chart(camCmpCtx, {
     type:'bar',
-    data:{ labels:nLabels, datasets:[{ label:'Index Score', data:nData, backgroundColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,0.8)':'rgba(26,107,181,0.5)'), borderColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,1)':'rgba(26,107,181,0.8)'), borderWidth:2, borderRadius:7 }] },
+    data:{ labels:nLabels, datasets:[{ label:'Index Score', data:nData, backgroundColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,0.8)':'rgba(26,107,181,0.5)'), borderColor:nLabels.map(n=>n==='Cambodia'?'rgba(26,155,95,1)':'rgba(26,107,181,0.8)'), borderWidth:0, borderRadius:0 }] },
     options:{ 
       scales:{
         y:{
@@ -888,7 +889,7 @@ function renderCambodiaPage() {
   if (charts.camRadar) charts.camRadar.destroy();
   charts.camRadar = new Chart(camRadarCtx, {
     type:'radar',
-    data:{ labels:PILLAR_LABELS, datasets:peers.map((pName,i)=>{ const c=GEI.countries.find(x=>x.country===pName); if(!c) return null; return { label:pName, data:PILLARS.map(p=>c[p]||0), backgroundColor:`${peerColors[i]},0.12)`, borderColor:`${peerColors[i]},1)`, pointBackgroundColor:`${peerColors[i]},1)`, borderWidth:2, pointRadius:3 }; }).filter(Boolean) },
+    data:{ labels:PILLAR_LABELS, datasets:peers.map((pName,i)=>{ const c=GEI.countries.find(x=>x.country===pName); if(!c) return null; return { label:pName, data:PILLARS.map(p=>c[p]||0), backgroundColor:`${peerColors[i]},0.12)`, borderColor:`${peerColors[i]},1)`, pointBackgroundColor:`${peerColors[i]},1)`, borderWidth:1, pointRadius:3 }; }).filter(Boolean) },
     options:{ 
       scales:{
         r:{
