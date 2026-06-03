@@ -412,7 +412,7 @@ function renderIncomeChart(data) {
         
         
         // Draw the average score
-        ctx.font = 'bold 18px Poppins';
+        ctx.font = 'bold 19px Poppins';
         ctx.fillStyle = '#1a2540';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -558,7 +558,7 @@ function renderMainTable(data) {
   let html = '';
   sorted.forEach(c => {
     const globalRank = allSorted.findIndex(x=>x.country===c.country)+1;
-    html += `<tr>
+    html += `<tr style="${c.country==='Cambodia'?'background:rgba(255, 213, 0, 0.08);':''}">
       <td><div class="rank-badge${globalRank<=3?' top3':''}">${globalRank}</div></td>
       <td><strong style="font-size:11.5px">${c.country}</strong></td>
       <td style="font-size:11px;color:var(--text-light)">${c.region||'—'}</td>

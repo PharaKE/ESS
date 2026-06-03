@@ -82,7 +82,7 @@ body::after {
 .topbar-title      { font-size:15px; font-weight:700; color:var(--text-dark); flex-shrink:0; }
 .topbar-title span { color:var(--green); }
 .topbar-right      { display:flex; align-items:center; gap:12px; flex-shrink:0; }
-.badge-year   { background:var(--grad-main); color:#fff; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600; }
+.badge-year   { background:var(--grad-main); color:#fff; padding:4px 12px; border-radius:10px; font-size:11px; font-weight:600; }
 .badge-source { font-size:11px; color:var(--text-light); }
 
 /* ── Pages ── */
@@ -118,10 +118,10 @@ body::after {
 /* ── KPI Cards ── */
 .kpi-card {
   background:var(--glass); backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border); border-radius:16px; padding:20px 22px;
+  border:1px solid var(--glass-border); border-radius:10px; padding:20px 22px;
   box-shadow:var(--glass-shadow); position:relative; overflow:hidden; transition:all 0.3s;
 }
-.kpi-card::before { content:''; position:absolute; inset:0; border-radius:16px; background:var(--grad-card); pointer-events:none; }
+.kpi-card::before { content:''; position:absolute; inset:0; border-radius:10px; background:var(--grad-card); pointer-events:none; }
 .kpi-card:hover   { transform:translateY(-3px); box-shadow:0 12px 36px rgba(26,107,181,0.14); }
 .kpi-icon         { font-size:26px; margin-bottom:8px; }
 .kpi-label        { font-size:10.5px; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
@@ -134,12 +134,13 @@ body::after {
 /* ── Glass Card ── */
 .glass-card {
   background:var(--glass); backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border); border-radius:17px;
+  border:1px solid var(--glass-border); border-radius:10px;
   box-shadow:var(--glass-shadow); padding:13px 17px; transition:all 0.3s;
 }
 .glass-card:hover { box-shadow:0 12px 36px rgba(26,107,181,0.13); }
 .card-title { font-size:12px; font-weight:700; color:var(--text-dark); margin-bottom:10px; display:flex; align-items:center; gap:7px; }
-.card-title-dot        { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+/*.card-title-dot        { width:7px; height:7px; border-radius:50%; flex-shrink:0; }*/
+.card-title-dot        { display:none;}
 .card-title-dot.green  { background:var(--green); }
 .card-title-dot.blue   { background:var(--blue); }
 .card-title-dot.yellow { background:var(--yellow-dark); }
@@ -205,7 +206,7 @@ body::after {
 }
 .loader-logo-wrap { display:flex; align-items:center; justify-content:center; }
 .loader-ke {
-  width:55px; height:55px; border-radius:14px; background:var(--grad-main);
+  width:55px; height:55px; border-radius:10px; background:var(--grad-main);
   display:flex; align-items:center; justify-content:center;
   font-size:18px; font-weight:900; color:rgba(255,255,255,0.85); letter-spacing:0.5px;
   opacity:0.9;
@@ -279,7 +280,7 @@ body::after {
   .top-nav { display:none !important; }
   .badge-source { display:none; }
   .topbar-title { flex:1; font-size:12.5px; font-weight:800; }
-  .kpi-card { padding:13px 11px; border-radius:16px; }
+  .kpi-card { padding:13px 11px; border-radius:10px; }
   .kpi-value { font-size:26px; }
   .kpi-label { font-size:9px; letter-spacing:0.4px; line-height:1.3; }
   .kpi-sub   { font-size:9.5px; margin-top:3px; }
@@ -287,7 +288,7 @@ body::after {
   .kpi-icon svg { width:20px; height:20px; }
   .grid-2, .grid-3, .grid-2-1 { display:flex; flex-direction:column; gap:10px; margin-bottom:10px; }
   .full-width { margin-bottom:10px; }
-  .glass-card { padding:14px 14px; border-radius:18px; }
+  .glass-card { padding:14px 14px; border-radius:10px; }
   .section-title { font-size:18px; font-weight:900; }
   .filters-row { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:16px; }
   .filter-select { min-width:unset; width:100%; }
@@ -310,7 +311,7 @@ body::after {
   .mob-nav-item {
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     flex:1; gap:3px; padding:6px 4px; border:none; background:none;
-    cursor:pointer; border-radius:12px; margin:6px 2px; transition:all 0.18s;
+    cursor:pointer; border-radius:10px; margin:6px 2px; transition:all 0.18s;
     -webkit-tap-highlight-color:transparent; position:relative;
   }
   .mob-nav-item:active { transform:scale(0.92); }
@@ -389,7 +390,7 @@ body::after {
 }
 .kumu-card {
   background: var(--glass); backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border); border-radius: 18px;
+  border: 1px solid var(--glass-border); border-radius: 10px;
   box-shadow: var(--glass-shadow); padding: 20px 18px 18px;
   display: flex; flex-direction: column; gap: 14px;
   transition: all 0.3s;
@@ -399,7 +400,7 @@ body::after {
 .kumu-card-header { display: flex; align-items: center; justify-content: space-between; }
 
 .kumu-card-icon {
-  width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   background: var(--grad-main);
 }
@@ -410,7 +411,7 @@ body::after {
 
 .kumu-card-badge {
   font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 20px;
+  padding: 4px 10px; border-radius: 10px;
   background: var(--grad-main); color: #fff;
 }
 .kumu-card-badge.pp { background: linear-gradient(135deg, #1a9b5f, #0d6e42); }
@@ -423,7 +424,7 @@ body::after {
 
 .kumu-open-btn {
   display: flex; align-items: center; justify-content: center; gap: 7px;
-  padding: 10px 16px; border-radius: 11px; text-decoration: none;
+  padding: 10px 16px; border-radius: 10px; text-decoration: none;
   background: var(--grad-main); color: #fff;
   font-size: 12px; font-weight: 600; font-family: 'Poppins', sans-serif;
   box-shadow: 0 3px 12px rgba(26,107,181,0.22); transition: all 0.2s;
@@ -492,7 +493,7 @@ body::after {
 .eda-notebook-card {
   background: #f7f8fa;
   border: 1px solid #e3e8ef;
-  border-radius: 18px;
+  border-radius: 10px;
   padding: 22px 22px 20px;
   margin-bottom: 13px;
   display: flex;
@@ -508,7 +509,7 @@ body::after {
 }
 
 .eda-notebook-icon {
-  width: 48px; height: 48px; border-radius: 13px; flex-shrink: 0;
+  width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0;
   background: linear-gradient(135deg, #007849 0%, #62c192 100%);
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 3px 12px rgba(16, 111, 21, 0.178);
@@ -526,7 +527,7 @@ body::after {
 }
 .eda-pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .eda-pill {
-  font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+  font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 10px;
   background: #e8edf4; color: var(--blue-dark); letter-spacing: 0.2px;
   border: 1px solid #d0daea;
 }
@@ -534,7 +535,7 @@ body::after {
 
 .eda-notebook-btn {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 18px; border-radius: 11px; text-decoration: none;
+  padding: 10px 18px; border-radius: 10px; text-decoration: none;
   background: linear-gradient(135deg, #007849 0%, #62c192 100%);
   color: #fff; font-size: 12px; font-weight: 700;
   font-family: 'Poppins', sans-serif;
@@ -578,7 +579,7 @@ body::after {
 .eda-topic-card {
   background: #f7f8fa;
   border: 1px solid #e3e8ef;
-  border-radius: 14px;
+  border-radius: 10px;
   padding: 14px 14px 13px;
   display: flex;
   flex-direction: column;
@@ -700,7 +701,7 @@ body::after {
 
 .kumu-preview-open {
   display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 16px; border-radius: 30px;
+  padding: 9px 16px; border-radius: 10px;
   background: rgba(255,255,255,0.95);
   color: var(--text-dark);
   font-size: 11.5px; font-weight: 700;
@@ -748,7 +749,7 @@ body::after {
 /* Badge */
 .kumu-card-badge {
   font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
-  text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 10px;
 }
 .kumu-card-badge.overall { background: #dbeeff; color: #0d4a82; }
 .kumu-card-badge.pp      { background: #dcf5ec; color: #0d5e38; }
@@ -835,7 +836,7 @@ body::after {
 .eda-notebook-card {
   background: #fff;
   border: 1px solid #e6edf6;
-  border-radius: 18px;
+  border-radius: 10px;
   box-shadow: 0 1px 8px rgba(26,107,181,0.05);
   margin-bottom: 14px;
   display: flex !important;
@@ -999,7 +1000,7 @@ body::after {
   gap: 10px; margin-bottom: 14px;
 }
 .eda-topic-card {
-  background: #fff; border: 1px solid #e6edf6; border-radius: 13px;
+  background: #fff; border: 1px solid #e6edf6; border-radius: 10px;
   padding: 14px; display: flex; flex-direction: column; gap: 9px;
   transition: all 0.2s; box-shadow: 0 1px 4px rgba(26,107,181,0.03);
 }

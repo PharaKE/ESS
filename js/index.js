@@ -170,7 +170,7 @@ const langData = {
     'hero.title.line1': 'ការផ្តល់អតិភាព',
     'hero.title.line2': 'សម្រាប់សហគ្រិនភាព',
     'hero.title.line3': 'នៅកម្ពុជា',
-    'hero.desc': 'KE Entrepreneur Support Platform​ គឺជាថ្នាលទិន្នន័យ ដែលត្រូវបានបង្កើតឡើងដើម្បីកំណត់ផែនទី វាស់ស្ទង់ និងពង្រឹងប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាពនៅកម្ពុជា ដោយភ្ជាប់គ្នារវាងស្ថាបនិក និងអង្គការគាំទ្រសហគ្រិនភាព (ESOs) ព្រមទាំងរាជរដ្ឋាភិបាលជាមួយនឹងការយល់ដឹងពីទិន្នន័យជាក់ស្តែងដែលអាចយកទៅអនុវត្តបាន។',
+    'hero.desc': 'KE Entrepreneur Support Platform​ គឺជាថ្នាលទិន្នន័យ ដែលត្រូវបានបង្កើតឡើងដើម្បីកំណត់ផែនទី វាស់ស្ទង់ និងពង្រឹងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពនៅកម្ពុជា ដោយភ្ជាប់គ្នារវាងស្ថាបនិក និងអង្គការគាំទ្រសហគ្រិនភាព (ESOs) ព្រមទាំងរាជរដ្ឋាភិបាលជាមួយនឹងការយល់ដឹងពីទិន្នន័យជាក់ស្តែងដែលអាចយកទៅអនុវត្តបាន។',
     'hero.cta.primary': 'ចាប់ផ្តើមដោយឥតគិតថ្លៃ',
     'hero.cta.secondary': 'ស្វែងយល់បន្ថែម',
     'hero.stat1.label': 'សហគ្រិន',
@@ -197,11 +197,11 @@ const langData = {
     'platform.badge': 'មុខងារវេទិកា',
     'platform.title.line1': 'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការ',
     'platform.title.line2': 'ដើម្បីទទួលបានការអភិវឌ្ឍនិងការរីកចម្រើន',
-    'platform.desc': 'ថ្នាលសំខាន់ៗចំនួនបួនដែលរួម បញ្ជូលទៅក្នុងវេទិការួមមួយដែលបង្កើតឡើងជាពិសេសសម្រាប់ប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាពនៅកម្ពុជា។',
+    'platform.desc': 'ថ្នាលសំខាន់ៗចំនួនបួនដែលរួម បញ្ជូលទៅក្នុងវេទិការួមមួយដែលបង្កើតឡើងជាពិសេសសម្រាប់ប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពនៅកម្ពុជា។',
     
     'feature1.tag': 'ការវិភាគបណ្តាញសង្គម',
     'feature1.title': 'ការបង្ហាញរូបភាពបណ្តាញដែលមើលមិនអាចមើលឃើញ​ ​Invisible Network',
-    'feature1.desc': 'ការគូសផែនទីទំនាក់ទំនងសហគ្រិនភាពជាង ៣៩០ នាក់នៅទូទាំងរាជធានីភ្នំពេញ សៀមរាប និងបាត់ដំបង។ ស្វែងយល់ពីឧបករណ៍តភ្ជាប់សំខាន់ៗ កំណត់គម្លាតនៃកិច្ចសហការ និងយល់ពីរបៀបនៃភាពយល់ដឹងហូរកាត់ប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាពនៅកម្ពុជា។',
+    'feature1.desc': 'ការគូសផែនទីទំនាក់ទំនងសហគ្រិនភាពជាង ៣៩០ នាក់នៅទូទាំងរាជធានីភ្នំពេញ សៀមរាប និងបាត់ដំបង។ ស្វែងយល់ពីឧបករណ៍តភ្ជាប់សំខាន់ៗ កំណត់គម្លាតនៃកិច្ចសហការ និងយល់ពីរបៀបនៃភាពយល់ដឹងហូរកាត់ប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពនៅកម្ពុជា។',
     'feature1.li1': 'Graph បណ្តាញអន្តរកម្មដែលមាន nodes ជាង ៣៩០',
     'feature1.li2': 'តម្រងនិងបែងចែកតាមទីក្រុង វិស័យ និងសម្ព័ន្ធភាព ESO',
     'feature1.li3': 'កំណត់អត្តសញ្ញាណអ្នកតភ្ជាប់កំពូល និងអ្នកសាងសង់ចំណង',
@@ -249,13 +249,13 @@ const langData = {
     'methodology.step1.desc': 'បានស្ទង់មតិសហគ្រិនជាង ៣៩០ នាក់នៅទូទាំងភ្នំពេញ សៀមរាប និងបាត់ដំបង។ បានរៀបចំព្រឹត្តិការណ៍សហគមន៍ សម្ភាសន៍ និងការស្ទង់មតិ SNA។',
     'methodology.step2.year': '២០២៦ មីនា',
     'methodology.step2.title': 'ការកំណត់វិសាលភាព និងការរចនាក្របខ័ណ្ឌ',
-    'methodology.step2.desc': 'បានបង្កើតក្របខ័ណ្ឌស្រាវជ្រាវសម្រាប់ប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាពកម្ពុជា។ បានកែសម្រួលវិធីសាស្រ្ត GEI សម្រាប់បរិបទនៅកម្ពុជា។',
+    'methodology.step2.desc': 'បានបង្កើតក្របខ័ណ្ឌស្រាវជ្រាវសម្រាប់ប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពកម្ពុជា។ បានកែសម្រួលវិធីសាស្រ្ត GEI សម្រាប់បរិបទនៅកម្ពុជា។',
     'methodology.step3.year': '២០២៦ មេសា-ឧសភា',
     'methodology.step3.title': 'ការអភិវឌ្ឍន៍វេទិកា ឬថ្នាល Website',
-    'methodology.step3.desc': 'បានសាងសង់ KE Entrepreneur Support Platform ដោយរួមបញ្ចូលការបង្ហាញរូបភាព SNA ការតាមដាន GEI ការផ្គូផ្គងប្រព័ន្ធអេកូឡូសុី និងជំនួយការ AI Chatbot។',
+    'methodology.step3.desc': 'បានសាងសង់ KE Entrepreneur Support Platform ដោយរួមបញ្ចូលការបង្ហាញរូបភាព SNA ការតាមដាន GEI ការផ្គូផ្គងប្រព័ន្ធអេកូឡូស៊ី និងជំនួយការ AI Chatbot។',
     'methodology.step4.year': '២០២៦ មិថុនា-កក្កដា',
     'methodology.step4.title': 'ការបើកដំណើរការ និងការធ្វើបច្ចុប្បន្នភាពបន្ត',
-    'methodology.step4.desc': 'វេទិកាបានបើកដំណើរការជាមួយទិន្នន័យចុងក្រោយគេបំផុត។ ការធ្វើបច្ចុប្បន្នភាពអាចបន្តបាននៅពេលដែលប្រព័ន្ធអេកូឡូសុីមានការវិវត្ត - មានចំនួនសហគ្រិនកើនឡើងថ្មីៗ ចំនួនដៃគូសហការ ESO និងពិន្ទុសហគ្រិនភាពថ្មីរបស់កម្ពុជា ពីការសិក្សាររបស់GEI។',
+    'methodology.step4.desc': 'វេទិកាបានបើកដំណើរការជាមួយទិន្នន័យចុងក្រោយគេបំផុត។ ការធ្វើបច្ចុប្បន្នភាពអាចបន្តបាននៅពេលដែលប្រព័ន្ធអេកូឡូស៊ីមានការវិវត្ត - មានចំនួនសហគ្រិនកើនឡើងថ្មីៗ ចំនួនដៃគូសហការ ESO និងពិន្ទុសហគ្រិនភាពថ្មីរបស់កម្ពុជា ពីការសិក្សាររបស់GEI។',
     
     'cta.badge': 'ចូលរួមថ្នាល់វេទិកា',
     'cta.title.line1': 'ត្រៀមខ្លួនរួចរាល់ក្នុងការស្វែងយល់ពី',
@@ -413,16 +413,30 @@ function initAOS() {
   const items = document.querySelectorAll('[data-aos]');
   if (!items.length) return;
 
+  // Make all items visible by default, then animate them in
+  // This prevents scroll blocking on load
+  items.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el    = entry.target;
         const delay = parseInt(el.dataset.aosDelay || 0);
-        setTimeout(() => el.classList.add('aos-animate'), delay);
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          el.classList.add('aos-animate');
+        }, delay);
         observer.unobserve(el);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { 
+    threshold: 0.05,  // ← lowered from 0.12 — triggers earlier
+    rootMargin: '0px 0px -20px 0px'  // ← reduced from -40px — less delay
+  });
 
   items.forEach(el => observer.observe(el));
 }
@@ -490,4 +504,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initAOS();
+  
+  // Fallback: if any AOS elements aren't visible after 2 seconds, show them
+  setTimeout(() => {
+    document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.classList.add('aos-loaded');
+    });
+  }, 2000);
 });

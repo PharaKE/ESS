@@ -246,9 +246,9 @@ function renderOverviewPage() {
   charts['cityOverview'] = new Chart(ctx1, chartDefaults('bar',
     ['Phnom Penh', 'Siem Reap', 'Battambang'],
     [
-      { label:'Total', data: overall.map(r => r['Total Entrepreneurs']), backgroundColor: [C_GREEN+'cc', C_BLUE+'cc', C_YELLOW+'cc'], borderRadius:6 },
-      { label:'Registered', data: overall.map(r => r['Rigistered']||0), backgroundColor: [C_GREEN+'55', C_BLUE+'55', C_YELLOW+'55'], borderRadius:6 },
-      { label:'ESO Support', data: [esoFromCity('Phnom Penh'), esoFromCity('Siem Reap'), esoFromCity('Battambang')], backgroundColor:[C_GREEN+'33',C_BLUE+'33',C_YELLOW+'33'], borderRadius:6 },
+      { label:'Total', data: overall.map(r => r['Total Entrepreneurs']), backgroundColor: [C_GREEN+'cc', C_BLUE+'cc', C_YELLOW+'cc'], borderRadius:0 },
+      { label:'Registered', data: overall.map(r => r['Rigistered']||0), backgroundColor: [C_GREEN+'55', C_BLUE+'55', C_YELLOW+'55'], borderRadius:0 },
+      { label:'ESO Support', data: [esoFromCity('Phnom Penh'), esoFromCity('Siem Reap'), esoFromCity('Battambang')], backgroundColor:[C_GREEN+'33',C_BLUE+'33',C_YELLOW+'33'], borderRadius:0 },
     ],
     { 
       plugins: { dataLabels: { display: true } },
@@ -300,7 +300,7 @@ function renderOverviewPage() {
   const ctx3 = document.getElementById('stageChart').getContext('2d');
   charts['stage'] = new Chart(ctx3, chartDefaults('bar',
     stageLabels,
-    [{ label:'Entrepreneurs', data:stageData, backgroundColor:[C_GREEN+'cc',C_BLUE+'cc',C_YELLOW+'cc'], borderRadius:8 }],
+    [{ label:'Entrepreneurs', data:stageData, backgroundColor:[C_GREEN+'cc',C_BLUE+'cc',C_YELLOW+'cc'], borderRadius:0 }],
     {
       indexAxis:'y',
       plugins:{ 
@@ -318,9 +318,9 @@ function renderOverviewPage() {
   charts['registration'] = new Chart(ctx4, chartDefaults('bar',
     ['Phnom Penh','Siem Reap','Battambang'],
     [
-      { label:'Registered',     data: overall.map(r => r['Rigistered']||0), backgroundColor:C_GREEN+'cc', borderRadius:5 },
-      { label:'Not Registered', data: overall.map(r => r['Not Registered']||0), backgroundColor:C_RED+'88', borderRadius:5 },
-      { label:'No Answer',      data: overall.map(r => r['No Answer']||0), backgroundColor:C_YELLOW+'88', borderRadius:5 },
+      { label:'Registered',     data: overall.map(r => r['Rigistered']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Not Registered', data: overall.map(r => r['Not Registered']||0), backgroundColor:C_RED+'88', borderRadius:0 },
+      { label:'No Answer',      data: overall.map(r => r['No Answer']||0), backgroundColor:C_YELLOW+'88', borderRadius:0 },
     ],
     { 
       plugins: { dataLabels: { display: true } },
@@ -335,9 +335,9 @@ function renderOverviewPage() {
   charts['networkEngagement'] = new Chart(ctx5, chartDefaults('bar',
     ['Phnom Penh','Siem Reap','Battambang'],
     [
-      { label:'Mentorship Received', data: overall.map(r => r['Mentorship received']||0), backgroundColor:C_GREEN+'cc', borderRadius:5 },
-      { label:'Peer Exchange',       data: overall.map(r => r['Peer Exchange']||0),       backgroundColor:C_BLUE+'cc',  borderRadius:5 },
-      { label:'External Funding',    data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:5 },
+      { label:'Mentorship Received', data: overall.map(r => r['Mentorship received']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Peer Exchange',       data: overall.map(r => r['Peer Exchange']||0),       backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'External Funding',    data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { 
       plugins: { dataLabels: { display: true } },
@@ -377,7 +377,7 @@ function renderOverviewPage() {
   const ctx7 = document.getElementById('sectorChart').getContext('2d');
   charts['sector'] = new Chart(ctx7, chartDefaults('bar',
     topSectors.map(s => truncate(s[0],22)),
-    [{ label:'Entrepreneurs', data:topSectors.map(s=>s[1]), backgroundColor: topSectors.map((_,i)=>[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_GREEN_L,C_BLUE_L,C_RED,'#9b59b6'][i%8]+'cc'), borderRadius:5 }],
+    [{ label:'Entrepreneurs', data:topSectors.map(s=>s[1]), backgroundColor: topSectors.map((_,i)=>[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_GREEN_L,C_BLUE_L,C_RED,'#9b59b6'][i%8]+'cc'), borderRadius:0 }],
     {
       indexAxis:'y',
       plugins: { 
@@ -409,9 +409,9 @@ function renderEcosystemPage() {
   charts['esoSupport'] = new Chart(ctx1, chartDefaults('bar',
     categories.map(c => truncate(c, 20)),
     [
-      { label:'Phnom Penh', data: delivered.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Siem Reap',  data: delivered.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
-      { label:'Battambang', data: delivered.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Phnom Penh', data: delivered.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Siem Reap',  data: delivered.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'Battambang', data: delivered.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { scales:{ x:{grid:{display:false},ticks:{font:{size:9}}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
   ));
@@ -422,9 +422,9 @@ function renderEcosystemPage() {
   charts['actualNeed'] = new Chart(ctx2, chartDefaults('bar',
     categories.map(c => truncate(c, 20)),
     [
-      { label:'Phnom Penh', data: needed.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Siem Reap',  data: needed.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
-      { label:'Battambang', data: needed.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Phnom Penh', data: needed.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Siem Reap',  data: needed.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'Battambang', data: needed.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { scales:{ x:{grid:{display:false},ticks:{font:{size:9}}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
   ));
@@ -438,8 +438,8 @@ function renderEcosystemPage() {
   charts['gap'] = new Chart(ctx3, chartDefaults('bar',
     gapData.map(r => truncate(r['Support'],24)),
     [
-      { label:'Delivered', data: deliveredOverall, backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Needed',    data: neededOverall,    backgroundColor:C_RED+'88',   borderRadius:4 },
+      { label:'Delivered', data: deliveredOverall, backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Needed',    data: neededOverall,    backgroundColor:C_RED+'88',   borderRadius:0 },
     ],
     { scales:{ x:{grid:{display:false},ticks:{font:{size:9}}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
   ));
@@ -450,9 +450,9 @@ function renderEcosystemPage() {
   charts['esoProviders'] = new Chart(ctx4, chartDefaults('bar',
     providers.map(r => r['ESOs']),
     [
-      { label:'Phnom Penh', data: providers.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Siem Reap',  data: providers.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
-      { label:'Battambang', data: providers.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Phnom Penh', data: providers.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Siem Reap',  data: providers.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'Battambang', data: providers.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { scales:{ x:{grid:{display:false}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
   ));
@@ -514,9 +514,9 @@ function renderFundingPage() {
   charts['fundingCity'] = new Chart(ctx2, chartDefaults('bar',
     types.map(t => truncate(t,22)),
     [
-      { label:'Phnom Penh', data: funding.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Siem Reap',  data: funding.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
-      { label:'Battambang', data: funding.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Phnom Penh', data: funding.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Siem Reap',  data: funding.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'Battambang', data: funding.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { 
       indexAxis:'y', 
@@ -538,7 +538,7 @@ function renderFundingPage() {
         return row ? (row[city]||0) : 0;
       }),
       backgroundColor: [C_BLUE,C_GREEN,C_YELLOW,C_ORANGE,C_RED][i]+'cc',
-      borderRadius:4,
+      borderRadius:0,
       stack:'stack0'
     })),
     { 
@@ -558,8 +558,8 @@ function renderFundingPage() {
   charts['fundingByType'] = new Chart(ctx4, chartDefaults('bar',
     ['Traditional','Social','Innovative','Livelihood'],
     [
-      { label:'Funded',    data: fundByType,   backgroundColor:C_GREEN+'cc', borderRadius:5 },
-      { label:'Not Funded',data: totalByType.map((t,i) => t - fundByType[i]), backgroundColor:C_RED+'44', borderRadius:5 },
+      { label:'Funded',    data: fundByType,   backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Not Funded',data: totalByType.map((t,i) => t - fundByType[i]), backgroundColor:C_RED+'44', borderRadius:0 },
     ],
     { 
       plugins: { dataLabels: { display: true } },
@@ -595,7 +595,7 @@ function renderMentorshipPage() {
   const ctx1 = document.getElementById('mentorBenefitChart').getContext('2d');
   charts['mentorBenefit'] = new Chart(ctx1, chartDefaults('bar',
     benefits.map(r => truncate(r['Benefit'],28)),
-    [{ label:'Overall', data: benefits.map(r => r['Overall']||0), backgroundColor:[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_RED,C_GREEN_L,C_BLUE_L,'#9b59b6'].map(c=>c+'cc'), borderRadius:6 }],
+    [{ label:'Overall', data: benefits.map(r => r['Overall']||0), backgroundColor:[C_GREEN,C_BLUE,C_YELLOW,C_ORANGE,C_RED,C_GREEN_L,C_BLUE_L,'#9b59b6'].map(c=>c+'cc'), borderRadius:0 }],
     {
       indexAxis:'y',
       plugins:{ 
@@ -612,9 +612,9 @@ function renderMentorshipPage() {
   charts['mentorCity'] = new Chart(ctx2, chartDefaults('bar',
     benefits.map(r => truncate(r['Benefit'],20)),
     [
-      { label:'Phnom Penh', data: benefits.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Siem Reap',  data: benefits.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:4 },
-      { label:'Battambang', data: benefits.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Phnom Penh', data: benefits.map(r => r['Phnom Penh']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Siem Reap',  data: benefits.map(r => r['Siem Reap']||0),  backgroundColor:C_BLUE+'cc',  borderRadius:0 },
+      { label:'Battambang', data: benefits.map(r => r['Battambang']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { scales:{ x:{grid:{display:false},ticks:{font:{size:9}}}, y:{beginAtZero:true,grid:{color:'rgba(26,107,181,0.07)'}} } }
   ));
@@ -626,9 +626,9 @@ function renderMentorshipPage() {
   charts['networkCompare'] = new Chart(ctx3, chartDefaults('bar',
     ['Phnom Penh','Siem Reap','Battambang'],
     [
-      { label:'Mentorship', data: overall.map(r => r['Mentorship received']||0), backgroundColor:C_GREEN+'cc', borderRadius:4 },
-      { label:'Peer Exchange', data: overall.map(r => r['Peer Exchange']||0), backgroundColor:C_BLUE+'cc', borderRadius:4 },
-      { label:'External Funding', data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:4 },
+      { label:'Mentorship', data: overall.map(r => r['Mentorship received']||0), backgroundColor:C_GREEN+'cc', borderRadius:0 },
+      { label:'Peer Exchange', data: overall.map(r => r['Peer Exchange']||0), backgroundColor:C_BLUE+'cc', borderRadius:0 },
+      { label:'External Funding', data: overall.map(r => r['External Funding Received']||0), backgroundColor:C_YELLOW+'cc', borderRadius:0 },
     ],
     { 
       plugins: { dataLabels: { display: true } },

@@ -143,7 +143,7 @@ function updateLanguage(lang) {
 
   if (lpP) {
     lpP.textContent = isKh
-      ? 'ចូលប្រើឧបករណ៍ ព្រមទាំងទិន្នន័យ និងបណ្តាញទំនាក់ទំនង ដើម្បីពង្រីកអាជីវកម្មរបស់លោកអ្នកនៅក្នុងប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាពដែលកំពុងតែមានការរីកចម្រើនដុះដាលនៅកម្ពុជា។'
+      ? 'ចូលប្រើឧបករណ៍ ព្រមទាំងទិន្នន័យ និងបណ្តាញទំនាក់ទំនង ដើម្បីពង្រីកអាជីវកម្មរបស់លោកអ្នកនៅក្នុងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពដែលកំពុងតែមានការរីកចម្រើនដុះដាលនៅកម្ពុជា។'
       : 'Access tools, data, and connections to grow your business in Cambodia\'s thriving ecosystem.';
   }
 
@@ -197,7 +197,7 @@ function updateLanguage(lang) {
 
   if (loginTitle) loginTitle.textContent = isKh ? 'សូមស្វាគមន៍' : 'Welcome back';
   if (loginSub) loginSub.textContent = isKh ? 'សូមចូលដោយប្រើឈ្មោះ និងពាក្យសម្ងាត់' : 'Sign in with your name and password';
-  if (regTitle) regTitle.textContent = isKh ? 'ចូលរួមប្រព័ន្ធអេកូឡូសុីសហគ្រិនភាព' : 'Join the ecosystem';
+  if (regTitle) regTitle.textContent = isKh ? 'ចូលរួមប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាព' : 'Join the ecosystem';
   if (regSub) regSub.textContent = isKh ? 'បង្កើតគណនី KE ឥតគិតថ្លៃ' : 'Create your free KE Ecosystem account';
 
   // ═══════ LABELS & PLACEHOLDERS ═══════

@@ -133,7 +133,8 @@ body::after {
 }
 .glass-card:hover { box-shadow:0 12px 36px rgba(26,107,181,0.13); }
 .card-title { font-size:12px; font-weight:700; color:var(--text-dark); margin-bottom:10px; display:flex; align-items:center; gap:7px; }
-.card-title-dot        { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+/*.card-title-dot        { width:7px; height:7px; border-radius:50%; flex-shrink:0; }*/
+.card-title-dot        { display:none;}
 .card-title-dot.green  { background:var(--green); }
 .card-title-dot.blue   { background:var(--blue); }
 .card-title-dot.yellow { background:var(--yellow-dark); }
