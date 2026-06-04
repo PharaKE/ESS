@@ -108,21 +108,21 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 @media (max-width: 768px) {
   .bg-artwork-main {
     width: clamp(120px, 30vw, 200px);
-    opacity: 0.25;
+    opacity: 1;
     top: 10%;
     right: 2%;
   }
   
   .bg-artwork-secondary {
     width: clamp(100px, 25vw, 180px);
-    opacity: 0.2;
+    opacity: 1;
     bottom: 15%;
     left: 1%;
   }
   
   .bg-artwork-hi {
     width: clamp(110px, 28vw, 200px);
-    opacity: 0.2;
+    opacity: 1;
   }
 }
 
