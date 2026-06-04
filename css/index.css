@@ -61,7 +61,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 .bg-artwork-main {
   top: 15%;
   right: 5%;
-  width: clamp(200px, 25vw, 400px);
+  width: clamp(300px, 25vw, 400px);
   height: auto;
   transform: rotate(-5deg);
   opacity: 1;
@@ -107,7 +107,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 /* Reduce opacity on mobile for better performance and visibility */
 @media (max-width: 768px) {
   .bg-artwork-main {
-    width: clamp(120px, 30vw, 200px);
+    width: clamp(150px, 30vw, 200px);
     opacity: 1;
     top: 10%;
     right: 2%;
@@ -121,7 +121,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   }
   
   .bg-artwork-hi {
-    width: clamp(110px, 28vw, 200px);
+    width: clamp(150px, 28vw, 200px);
     opacity: 1;
   }
 }
@@ -690,7 +690,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   width: 130px;
   height: auto;
   transform: rotate(-15deg);
-  opacity: 0.4;
+  opacity: 1;
 }
 
 .artwork-icon-2 {
@@ -699,7 +699,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   width: 120px;
   height: auto;
   transform: rotate(10deg);
-  opacity: 0.25;
+  opacity: 1;
 }
 
 .artwork-icon-3 {
@@ -708,7 +708,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   width: 130px;
   height: auto;
   transform: rotate(-8deg);
-  opacity: 0.4;
+  opacity: 1;
 }
 
 .artwork-icon-4 {
@@ -717,7 +717,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   width: 120px;
   height: auto;
   transform: rotate(20deg);
-  opacity: 0.45;
+  opacity: 1;
 }
 
 /* Ensure section-inner has relative positioning for artwork */
@@ -731,28 +731,28 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
     width: 80px;
     top: 10px;
     left: 2%;
-    opacity: 0.3;
+    opacity: 0.4;
   }
   
   .artwork-icon-2 {
     width: 80px;
     top: 25%;
     right: 1%;
-    opacity: 0.15;
+    opacity: 0.4;
   }
   
   .artwork-icon-3 {
     width: 80px;
     bottom: 1%;
     left: 3%;
-    opacity: 0.3;
+    opacity: 0.4;
   }
   
   .artwork-icon-4 {
     width: 80px;
     bottom: 20%;
     right: 3%;
-    opacity: 0.35;
+    opacity: 0.4;
   }
 }
 
