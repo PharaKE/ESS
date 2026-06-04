@@ -45,6 +45,88 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 .bg-grid {
   display: none;
 }
+
+
+
+/* ── Background Artwork ── */
+.bg-artwork {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+  filter: blur(0px);
+  transition: opacity 0.3s;
+}
+
+.bg-artwork-main {
+  top: 15%;
+  right: 5%;
+  width: clamp(200px, 25vw, 400px);
+  height: auto;
+  transform: rotate(-5deg);
+  opacity: 1;
+  animation: artworkFloat1 20s ease-in-out infinite;
+}
+
+.bg-artwork-secondary {
+  bottom: 20%;
+  left: 3%;
+  width: clamp(150px, 20vw, 350px);
+  height: auto;
+  transform: rotate(8deg);
+  opacity: 1;
+  animation: artworkFloat2 25s ease-in-out infinite;
+}
+
+.bg-artwork-hi {
+  top: 50%;
+  left: 50%;
+  width: clamp(500px, 22vw, 380px);
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  opacity: 1;
+  animation: artworkFloat3 30s ease-in-out infinite;
+}
+
+/* Subtle floating animations for background artwork */
+@keyframes artworkFloat1 {
+  0%, 100% { transform: rotate(-5deg) translate(0, 0); }
+  50% { transform: rotate(-3deg) translate(15px, -20px); }
+}
+
+@keyframes artworkFloat2 {
+  0%, 100% { transform: rotate(8deg) translate(0, 0); }
+  50% { transform: rotate(6deg) translate(-20px, 15px); }
+}
+
+@keyframes artworkFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-3deg); }
+  50% { transform: translate(-50%, -50%) rotate(-1deg) scale(1.05); }
+}
+
+/* Reduce opacity on mobile for better performance and visibility */
+@media (max-width: 768px) {
+  .bg-artwork-main {
+    width: clamp(120px, 30vw, 200px);
+    opacity: 0.25;
+    top: 10%;
+    right: 2%;
+  }
+  
+  .bg-artwork-secondary {
+    width: clamp(100px, 25vw, 180px);
+    opacity: 0.2;
+    bottom: 15%;
+    left: 1%;
+  }
+  
+  .bg-artwork-hi {
+    width: clamp(110px, 28vw, 200px);
+    opacity: 0.2;
+  }
+}
+
+
 @keyframes orbFloat1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(28px,-22px)} }
 @keyframes orbFloat2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-22px,28px)} }
 @keyframes orbFloat3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(18px,-28px)} }
@@ -584,6 +666,95 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 }
 
 
+
+/* ════ METHODOLOGY ARTWORK ICONS ════ */
+.methodology-artworks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.artwork-icon {
+  position: absolute;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: blur(0px);
+  transition: opacity 0.3s;
+}
+
+.artwork-icon-1 {
+  top: 30px;
+  left: 5%;
+  width: 130px;
+  height: auto;
+  transform: rotate(-15deg);
+  opacity: 0.4;
+}
+
+.artwork-icon-2 {
+  top: 30%;
+  right: 3%;
+  width: 120px;
+  height: auto;
+  transform: rotate(10deg);
+  opacity: 0.25;
+}
+
+.artwork-icon-3 {
+  bottom: 10%;
+  left: 8%;
+  width: 130px;
+  height: auto;
+  transform: rotate(-8deg);
+  opacity: 0.4;
+}
+
+.artwork-icon-4 {
+  bottom: 25%;
+  right: 8%;
+  width: 120px;
+  height: auto;
+  transform: rotate(20deg);
+  opacity: 0.45;
+}
+
+/* Ensure section-inner has relative positioning for artwork */
+.section-alt .section-inner {
+  position: relative;
+}
+
+/* Responsive adjustments for artwork icons */
+@media (max-width: 768px) {
+  .artwork-icon-1 {
+    width: 80px;
+    top: 10px;
+    left: 2%;
+    opacity: 0.3;
+  }
+  
+  .artwork-icon-2 {
+    width: 80px;
+    top: 25%;
+    right: 1%;
+    opacity: 0.15;
+  }
+  
+  .artwork-icon-3 {
+    width: 80px;
+    bottom: 1%;
+    left: 3%;
+    opacity: 0.3;
+  }
+  
+  .artwork-icon-4 {
+    width: 80px;
+    bottom: 20%;
+    right: 3%;
+    opacity: 0.35;
+  }
+}
 
 
 
