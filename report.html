@@ -6,6 +6,7 @@
 <title>KE · Reports &amp; Research</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/report.css">
+<link rel="stylesheet" href="css/logout.css">
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Sans+Khmer:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -19,6 +20,30 @@
 
 <div id="app">
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+  <div class="logout-overlay" id="logoutOverlay" onclick="LogoutModal.close()">
+    <div class="logout-modal" onclick="event.stopPropagation()">
+      <div class="logout-modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </div>
+      <h3 class="logout-modal-title">Sign Out?</h3>
+      <p class="logout-modal-text">Are you sure you want to sign out of the platform?</p>
+      <div class="logout-modal-actions">
+        <button class="logout-btn-cancel" onclick="LogoutModal.close()">Cancel</button>
+        <button class="logout-btn-confirm" onclick="LogoutModal.confirm()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
@@ -71,7 +96,7 @@
         </span>
         My Profile
       </div>
-      <div class="nav-item" onclick="window.location.href='index.html'">
+      <div class="nav-item" onclick="LogoutModal.show()">
         <span class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         </span>
@@ -458,5 +483,6 @@
 </nav>
 
 <script src="js/report.js"></script>
+<script src="js/logout.js"></script>
 </body>
 </html>
