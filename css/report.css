@@ -70,6 +70,21 @@ body::after {
 .sidebar-footer p{ font-size:9px; color:rgba(255,255,255,0.3); line-height:1.6; }
 /* replace with: */
 .sidebar-close-btn { display:none; }
+.sidebar-artwork {
+  padding: 0 18px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.sidebar-artwork-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+  display: block;
+  object-fit: contain;
+  max-height: 120px;
+}
 
 @media (max-width: 768px) {
   .sidebar-logo { flex-wrap:nowrap; }

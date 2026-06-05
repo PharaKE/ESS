@@ -71,6 +71,21 @@ body::after {
 }
 .sidebar-footer  { padding:10px 18px; border-top:1px solid rgba(255,255,255,0.08); }
 .sidebar-footer p{ font-size:9px; color:rgba(255,255,255,0.3); line-height:1.6; }
+.sidebar-artwork {
+  padding: 0 18px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.sidebar-artwork-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+  display: block;
+  object-fit: contain;
+  max-height: 120px;
+}
 
 /* ── Topbar ── */
 .topbar {

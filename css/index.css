@@ -61,31 +61,31 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 .bg-artwork-main {
   top: 15%;
   right: 5%;
-  width: clamp(300px, 25vw, 400px);
+  width: clamp(400px, 25vw, 400px);
   height: auto;
   transform: rotate(-5deg);
   opacity: 1;
-  animation: artworkFloat1 20s ease-in-out infinite;
+  animation: artworkFloat1 10s ease-in-out infinite;
 }
 
 .bg-artwork-secondary {
-  bottom: 20%;
+  top: 40%;
   left: 3%;
-  width: clamp(150px, 20vw, 350px);
+  width: clamp(400px, 20vw, 400px);
   height: auto;
   transform: rotate(8deg);
   opacity: 1;
-  animation: artworkFloat2 25s ease-in-out infinite;
+  animation: artworkFloat2 10s ease-in-out infinite;
 }
 
-.bg-artwork-hi {
-  top: 50%;
-  left: 50%;
-  width: clamp(500px, 22vw, 380px);
+.bg-artwork-third {
+  top: 60%;
+  left: 55%;
+  width: clamp(150px, 25vw, 250px);
   height: auto;
   transform: translate(-50%, -50%) rotate(-3deg);
   opacity: 1;
-  animation: artworkFloat3 30s ease-in-out infinite;
+  animation: artworkFloat1 10s ease-in-out infinite;
 }
 
 /* Subtle floating animations for background artwork */
@@ -107,22 +107,24 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
 /* Reduce opacity on mobile for better performance and visibility */
 @media (max-width: 768px) {
   .bg-artwork-main {
-    width: clamp(150px, 30vw, 200px);
+    width: clamp(200px, 25vw, 200px);
     opacity: 1;
-    top: 10%;
-    right: 2%;
+    top: 15%;
+    right: 1%;
   }
   
   .bg-artwork-secondary {
-    width: clamp(100px, 25vw, 180px);
+    width: clamp(200px, 25vw, 200px);
     opacity: 1;
-    bottom: 15%;
+    top: 45%;
     left: 1%;
   }
   
-  .bg-artwork-hi {
-    width: clamp(150px, 28vw, 200px);
+  .bg-artwork-third {
+    width: clamp(130px, 28vw, 150px);
+    top: 75%;
     opacity: 1;
+    right:1%;
   }
 }
 

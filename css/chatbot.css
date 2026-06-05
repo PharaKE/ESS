@@ -73,7 +73,21 @@ body::before {
 .ns-item svg    { flex-shrink:0; stroke:currentColor; }
 .ns-footer { padding:16.5px 16px; border-top:1px solid rgba(255,255,255,0.07); }
 .ns-footer p { font-size:8.5px; color:rgba(255,255,255,0.28); line-height:1.6; }
+.sidebar-artwork {
+  padding: 0 18px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
 
+.sidebar-artwork-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+  display: block;
+  object-fit: contain;
+  max-height: 120px;
+}
 /* ════ COLUMN 2: CHAT HISTORY PANEL ════ */
 .history-panel {
   width:var(--hist-w); flex-shrink:0;
