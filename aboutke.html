@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About KE · Khmer Enterprise</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Sans+Khmer:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aboutke.css">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+<!-- ══════════════════════════════ BACKGROUND ══════════════════════════════ -->
+<div class="bg-layer">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+  <img src="images/artwork_2.png" alt="" class="bg-artwork bg-artwork-main">
+  <img src="images/artwork_1.png" alt="" class="bg-artwork bg-artwork-third">
+  <img src="images/artwork_2.png" alt="" class="bg-artwork bg-artwork-secondary">
+</div>
+
+<!-- ══════════════════════════════ NAV ══════════════════════════════ -->
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo_KE.png" alt="KE" class="nav-logo-img">
+      <div>
+        <div class="nav-brand">Khmer Enterprise</div>
+        <div class="nav-sub">Entrepreneur Support Platform</div>
+      </div>
+    </a>
+
+    <div class="nav-links" id="nav-links">
+      <!-- Page navigation -->
+      <a href="index.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span data-en="Main Page" data-kh="ទំព័រដើម">Main Page</span>
+      </a>
+      <a href="aboutke.html" class="nav-link active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span data-en="About KE" data-kh="អំពីសហគ្រិនខ្មែរ">About KE</span>
+      </a>
+      <a href="login.html" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        <span data-en="Sign In" data-kh="ចូលប្រើប្រាស់">Sign In</span>
+      </a>
+      <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
+        <span class="lang-option lang-option-en active">EN</span>
+        <span class="lang-option lang-option-kh">ខ្មែរ</span>
+      </button>
+    </div>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="ake-hero">
+  <div class="ake-hero-inner">
+    <div class="ake-hero-badge" data-aos="fade-up">
+      <span data-en="About Khmer Enterprise" data-kh="អំពីសហគ្រិនខ្មែរ">About Khmer Enterprise</span>
+    </div>
+    <p class="ake-hero-desc" data-aos="fade-up" data-aos-delay="160"
+       data-en="Khmer Enterprise (KE) is established by the Royal Government of Cambodia to work as an entrepreneurial ecosystem builder — implementing support programs and directly working with partners and beneficiaries to mobilize, invest, and manage resources for a vibrant Cambodian entrepreneurship landscape."
+       data-kh="សហគ្រិនខ្មែរ (KE) ត្រូវបានបង្កើតឡើងដោយរាជរដ្ឋាភិបាលកម្ពុជាដើម្បីដើរតួជាអ្នកកសាងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិន ក្នុងការអនុវត្តកម្មវិធីគាំទ្រ និងធ្វើការដោយផ្ទាល់ជាមួយដៃគូ និងអ្នកទទួលផល ដើម្បីគ្រប់គ្រងធនធានសម្រាប់ការអភិវឌ្ឍសហគ្រិនភាពនៅកម្ពុជា។">
+      Khmer Enterprise (KE) is established by the Royal Government of Cambodia to work as an entrepreneurial ecosystem builder — implementing support programs and directly working with partners and beneficiaries to mobilize, invest, and manage resources for a vibrant Cambodian entrepreneurship landscape.
+    </p>
+    <div class="ake-hero-actions" data-aos="fade-up" data-aos-delay="240">
+      <a href="#vision-mission" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+        <span data-en="Our Mission" data-kh="បេសកកម្មរបស់យើង">Our Mission</span>
+      </a>
+      <a href="#sectors" class="btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span data-en="Explore Sectors" data-kh="ស្វែងរកវិស័យ">Explore Sectors</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating KE emblem with icon satellites -->
+    <div class="ake-hero-emblem" data-aos="fade-left" data-aos-delay="200">
+        <div class="emblem-ring emblem-ring-outer"></div>
+        <div class="emblem-ring emblem-ring-mid"></div>
+        <div class="emblem-ring emblem-ring-inner"></div>
+
+        <!-- Center logo -->
+        <div class="emblem-logo-wrap">
+        <img src="images/KEbot_2.png" alt="KE Logo" class="emblem-logo">
+        </div>
+
+        <!-- OUTER RING (100% - FIRST CIRCLE) - 4 artwork icons moving CLOCKWISE -->
+        <div class="emblem-orbit emblem-orbit-outer-1">
+        <div class="emblem-satellite emblem-satellite-outer">
+            <img src="images/artwork_icon_1.png" alt="Icon 1">
+        </div>
+        </div>
+        <div class="emblem-orbit emblem-orbit-outer-2">
+        <div class="emblem-satellite emblem-satellite-outer">
+            <img src="images/artwork_icon_2.png" alt="Icon 2">
+        </div>
+        </div>
+        <div class="emblem-orbit emblem-orbit-outer-3">
+        <div class="emblem-satellite emblem-satellite-outer">
+            <img src="images/artwork_icon_3.png" alt="Icon 3">
+        </div>
+        </div>
+        <div class="emblem-orbit emblem-orbit-outer-4">
+        <div class="emblem-satellite emblem-satellite-outer">
+            <img src="images/artwork_icon_4.png" alt="Icon 4">
+        </div>
+        </div>
+
+        <!-- MID RING (74% - SECOND CIRCLE) - Vision & Mission moving COUNTER-CLOCKWISE -->
+        <div class="emblem-orbit emblem-orbit-mid-1">
+        <div class="emblem-satellite emblem-satellite-mid">
+            <img src="images/artwork_icon_vision.png" alt="Vision Icon">
+        </div>
+        </div>
+        <div class="emblem-orbit emblem-orbit-mid-2">
+        <div class="emblem-satellite emblem-satellite-mid">
+            <img src="images/artwork_icon_mission.png" alt="Mission Icon">
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ ABOUT BLOCK ══════════════════════════════ -->
+<section class="ake-section" id="about">
+  <div class="ake-section-inner">
+    <div class="ake-section-label" data-aos="fade-up">
+      <span data-en="Who We Are" data-kh="សហគ្រិនខ្មែរជានរណា">Who We Are</span>
+    </div>
+    <div class="about-two-col" data-aos="fade-up" data-aos-delay="60">
+      <div class="about-text-block">
+        <p class="about-para"
+           data-en="Khmer Enterprise (KE) is established by the Royal Government of Cambodia to work as an entrepreneurial ecosystem builder to implement the support programs and directly work with partners and beneficiaries. It aims to mobilize, invest and manage resources, from all legitimate sources, to support the development of a vibrant entrepreneurial ecosystem and to provide financial and nonfinancial support to related entrepreneurial ecosystem builders."
+           data-kh="សហគ្រិនខ្មែរ (KE) ត្រូវបានបង្កើតឡើងដោយរាជរដ្ឋាភិបាលកម្ពុជាដើម្បីដើរតួជាអ្នកកសាងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិន ក្នុងការអនុវត្តកម្មវិធីគាំទ្រនានា និងធ្វើការដោយផ្ទាល់ជាមួយដៃគូ និងអ្នកទទួលផល។ សហគ្រិនខ្មែរមានគោលបំណងកៀរគរ វិនិយោគ និងគ្រប់គ្រងធនធានពីប្រភពស្របច្បាប់ទាំងឡាយ ដើម្បីគាំទ្រដល់ការអភិវឌ្ឍប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពដែលមានភាពរស់រវើក និងផ្តល់ការគាំទ្រផ្នែកហិរញ្ញវត្ថុ និងមិនមែនហិរញ្ញវត្ថុ ដល់អ្នកកសាងពាក់ព័ន្ធ ក្នុងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាព។">
+          Khmer Enterprise (KE) is established by the Royal Government of Cambodia to work as an entrepreneurial ecosystem builder to implement the support programs and directly work with partners and beneficiaries. It aims to mobilize, invest and manage resources, from all legitimate sources, to support the development of a vibrant entrepreneurial ecosystem and to provide financial and nonfinancial support to related entrepreneurial ecosystem builders.
+        </p>
+        <p class="about-para"
+           data-en="They are entrepreneurs, innovative startups, potential SMEs and partner institutions who participate in promoting entrepreneurial activities driving innovation and value-added creation in Cambodia's economy."
+           data-kh="អ្នកទាំងនោះរួមមាន សហគ្រិន ធុរកិច្ចបង្កើតថ្មីដែលមានលក្ខណៈនវានុវត្តន៍ សហគ្រាសធុនតូច និងមធ្យមដែលពោរពេញដោយសក្តានុពល និងស្ថាប័នដៃគូ ដែលចូលរួមលើកម្ពស់សកម្មភាពសហគ្រិនភាព ដើម្បីជំរុញនវានុវត្តន៍ និងការបង្កើតតម្លៃបន្ថែម នៅក្នុងសេដ្ឋកិច្ចកម្ពុជា។">
+          They are entrepreneurs, innovative startups, potential SMEs and partner institutions who participate in promoting entrepreneurial activities driving innovation and value-added creation in Cambodia's economy.
+        </p>
+      </div>
+      <div class="about-pillars">
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title" data-en="Entrepreneurs" data-kh="សហគ្រិន">Entrepreneurs</div>
+            <div class="pillar-desc" data-en="Supporting visionary founders" data-kh="ជំរុញដល់ស្ថាបនិក">Supporting visionary founders</div>
+          </div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title" data-en="Innovative Startups" data-kh="ធុរកិច្ចបង្កើតថ្មី">Innovative Startups</div>
+            <div class="pillar-desc" data-en="Fueling innovation-led ventures" data-kh="ជំរុញគំនិតថ្មី">Fueling innovation-led ventures</div>
+          </div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="220">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title" data-en="Potential SMEs" data-kh="សហគ្រាសធុនតូច-មធ្យម">Potential SMEs</div>
+            <div class="pillar-desc" data-en="Growing small & medium enterprises" data-kh="លូតលាស់ SMEs">Growing small &amp; medium enterprises</div>
+          </div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="280">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title" data-en="Partner Institutions" data-kh="ស្ថាប័នដៃគូ">Partner Institutions</div>
+            <div class="pillar-desc" data-en="Ecosystem collaborators" data-kh="អ្នកចូលរួមប្រព័ន្ធ">Ecosystem collaborators</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ VISION & MISSION ══════════════════════════════ -->
+<section class="ake-section vm-section" id="vision-mission">
+  <div class="ake-section-inner">
+    <div class="ake-section-label" data-aos="fade-up">
+      <span data-en="Our Direction" data-kh="ទិសដៅរបស់យើង">Our Direction</span>
+    </div>
+
+    <div class="vm-grid">
+
+      <!-- VISION CARD -->
+      <div class="vm-card vm-card-vision" data-aos="fade-right" data-aos-delay="60">
+        <div class="vm-card-glow vm-glow-green"></div>
+        <div class="vm-icon-wrap">
+          <img src="images/artwork_icon_vision.png" alt="Vision" class="vm-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="vm-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.636-7 10-7 10 7 10 7-3.636 7-10 7S2 12 2 12"/></svg>
+          </div>
+        </div>
+        <div class="vm-tag" data-en="Vision" data-kh="ចក្ខុវិស័យ">Vision</div>
+        <p class="vm-text"
+           data-en="Khmer Enterprise has a vision to become the national platform for promoting entrepreneurial activities."
+           data-kh="ចក្ខុវិស័យរបស់សហគ្រិនខ្មែរ គឺក្លាយជាថ្នាលជាតិសម្រាប់ការលើកកម្ពស់គ្រប់សកម្មភាពរបស់វិស័យសហគ្រិនភាព។">
+          Khmer Enterprise has a vision to become the national platform for promoting entrepreneurial activities.
+        </p>
+      </div>
+
+      <!-- MISSION CARD -->
+      <div class="vm-card vm-card-mission" data-aos="fade-left" data-aos-delay="120">
+        <div class="vm-card-glow vm-glow-blue"></div>
+        <div class="vm-icon-wrap">
+          <img src="images/artwork_icon_mission.png" alt="Mission" class="vm-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="vm-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+        </div>
+        <div class="vm-tag vm-tag-blue" data-en="Mission" data-kh="បេសកកម្ម">Mission</div>
+        <p class="vm-text"
+           data-en="Khmer Enterprise's support in building a vibrant entrepreneurial ecosystem can lead to economic diversification and innovation, increasing productivity and decent work creation."
+           data-kh="ការគាំទ្ររបស់សហគ្រិនខ្មែរ ក្នុងការកសាងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពដ៏រស់រវើក អាចនាំទៅរកការធ្វើពិពិធកម្មសេដ្ឋកិច្ច និងនវានុវត្តន៍ បង្កើនផលិតភាព និងការបង្កើតការងារសមរម្យ។">
+          Khmer Enterprise's support in building a vibrant entrepreneurial ecosystem can lead to economic diversification and innovation, increasing productivity and decent work creation.
+        </p>
+        <div class="vm-principles">
+          <div class="vm-principles-title" data-en="Four Key Principles:" data-kh="គោលការណ៍សំខាន់ៗចំនួន ៤:">Four Key Principles:</div>
+          <ul class="vm-list">
+            <li data-en="Co-sponsoring entrepreneurial ecosystem building" data-kh="សហការឧបត្ថម្ភគាំទ្រដល់កិច្ចការកសាងប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាព">Co-sponsoring entrepreneurial ecosystem building</li>
+            <li data-en="Providing financial and non-financial support to start-ups and SMEs" data-kh="ផ្តល់ការគាំទ្រផ្នែកហិរញ្ញវត្ថុ និងមិនមែនហិរញ្ញវត្ថុដល់ធុរកិច្ចបង្កើតថ្មី និង SMEs">Providing financial and non-financial support to start-ups and SMEs</li>
+            <li data-en="Encouraging growth of the four priority sectors" data-kh="លើកទឹកចិត្ត និងជំរុញកំណើនរបស់វិស័យអាទិភាពទាំងបួន">Encouraging growth of the four priority sectors</li>
+            <li data-en="Motivating local and international investors to invest in Cambodia's ecosystem" data-kh="លើកទឹកចិត្តដល់វិនិយោគិនក្នុងស្រុក និងក្រៅស្រុក ឱ្យវិនិយោគលើប្រព័ន្ធអេកូឡូស៊ីសហគ្រិនភាពនៅកម្ពុជា">Motivating local and international investors to invest in Cambodia's ecosystem</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ SECTORS ══════════════════════════════ -->
+<section class="ake-section sectors-section" id="sectors">
+  <div class="ake-section-inner">
+    <div class="ake-section-label" data-aos="fade-up">
+      <span data-en="Priority Sectors" data-kh="វិស័យអាទិភាព">Priority Sectors</span>
+    </div>
+    <h2 class="ake-section-title centered" data-aos="fade-up" data-aos-delay="40">
+      <span data-en="Four Pillars of" data-kh="សសរស្តម្ភទាំងបួននៃ">Four Pillars of</span><br>
+      <span class="gradient-text" data-en="Economic Growth" data-kh="កំណើនសេដ្ឋកិច្ច">Economic Growth</span>
+    </h2>
+    <p class="sectors-subtitle" data-aos="fade-up" data-aos-delay="80"
+       data-en="Khmer Enterprise focuses its support across four priority sectors that drive innovation and economic value creation in Cambodia."
+       data-kh="សហគ្រិនខ្មែរ ផ្តោតលើការគាំទ្រ វិស័យអាទិភាពទាំងបួន ដើម្បីជំរុញនវានុវត្តន៍ និងការបង្កើតតម្លៃសេដ្ឋកិច្ចនៅកម្ពុជា។">
+      Khmer Enterprise focuses its support across four priority sectors that drive innovation and economic value creation in Cambodia.
+    </p>
+
+    <div class="sectors-grid">
+
+      <!-- ICT -->
+      <div class="sector-card sector-ict" data-aos="fade-up" data-aos-delay="60">
+        <div class="sector-number">01</div>
+        <div class="sector-icon-wrap">
+          <img src="images/artwork_icon_2.png" alt="ICT" class="sector-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="sector-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+        </div>
+        <div class="sector-tag" data-en="ICT" data-kh="ICT">ICT</div>
+        <h3 class="sector-title"
+            data-en="Information & Communication Technology"
+            data-kh="បច្ចេកវិទ្យាព័ត៌មាន និងសារគមនាគមន៍">
+          Information &amp; Communication Technology
+        </h3>
+        <p class="sector-desc"
+           data-en="Khmer Enterprise provides support in the ICT sector which mainly focuses on technology startups, SMEs digital transformation, and digital environment."
+           data-kh="សហគ្រិនខ្មែរផ្តល់ការគាំទ្រដល់វិស័យបច្ចេកវិទ្យាព័ត៌មាន និងសារគមនាគមន៍ (ICT) ដែលផ្តោតសំខាន់លើធុរកិច្ចបង្កើតថ្មីផ្នែកបច្ចេកវិទ្យា បរិវត្តកម្មឌីជីថលរបស់ SMEs និងបរិយាកាសឌីជីថល។">
+          Khmer Enterprise provides support in the ICT sector which mainly focuses on technology startups, SMEs digital transformation, and digital environment.
+        </p>
+        <div class="sector-tags-row">
+          <span class="stag" data-en="Tech Startups" data-kh="ធុរកិច្ចបច្ចេកវិទ្យា">Tech Startups</span>
+          <span class="stag" data-en="Digital Transform" data-kh="ការបំប្លែងឌីជីថល">Digital Transform</span>
+          <span class="stag" data-en="Digital Env." data-kh="បរិយាកាស">Digital Env.</span>
+        </div>
+      </div>
+
+      <!-- AGRICULTURE -->
+      <div class="sector-card sector-agri" data-aos="fade-up" data-aos-delay="120">
+        <div class="sector-number">02</div>
+        <div class="sector-icon-wrap">
+          <img src="images/artwork_icon_1.png" alt="Agriculture" class="sector-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="sector-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 22 C4 17 8 10 12 8 C16 6 20 8 22 4"/><path d="M12 22 C12 16 10 12 7 10"/></svg>
+          </div>
+        </div>
+        <div class="sector-tag sector-tag-green" data-en="Agriculture" data-kh="កសិកម្ម">Agriculture</div>
+        <h3 class="sector-title" data-en="Agriculture" data-kh="កសិកម្ម">Agriculture</h3>
+        <p class="sector-desc"
+           data-en="Agriculture is one of four prioritized sectors that Khmer Enterprise is working to support in its three areas such as productivity, agroprocessing, and market expansion."
+           data-kh="កសិកម្មគឺជាវិស័យមួយក្នុងចំណោម វិស័យអាទិភាពទាំងបួន ដែលសហគ្រិនខ្មែរ ធ្វើការគាំទ្រ ទៅលើបីផ្នែក សំខាន់ ដូចជា ផលិតភាព កសិ-រកែច្នៃ និងការពង្រីកទីផ្សារ។">
+          Agriculture is one of four prioritized sectors that Khmer Enterprise is working to support in its three areas such as productivity, agroprocessing, and market expansion.
+        </p>
+        <div class="sector-tags-row">
+          <span class="stag stag-green" data-en="Productivity" data-kh="ផលិតភាព">Productivity</span>
+          <span class="stag stag-green" data-en="Agroprocessing" data-kh="កសិ-រកែច្នៃ">Agroprocessing</span>
+          <span class="stag stag-green" data-en="Market Expansion" data-kh="ទីផ្សារ">Market Expansion</span>
+        </div>
+      </div>
+
+      <!-- MANUFACTURING -->
+      <div class="sector-card sector-mfg" data-aos="fade-up" data-aos-delay="180">
+        <div class="sector-number">03</div>
+        <div class="sector-icon-wrap">
+          <img src="images/artwork_icon_4.png" alt="Manufacturing" class="sector-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="sector-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+        </div>
+        <div class="sector-tag sector-tag-red" data-en="Manufacturing" data-kh="កម្មន្តសាល">Manufacturing</div>
+        <h3 class="sector-title" data-en="Manufacturing" data-kh="កម្មន្តសាល (ការផលិត)">Manufacturing</h3>
+        <p class="sector-desc"
+           data-en="Khmer Enterprise reinforces the manufacturing sector by mainly focusing on import substitution and industrial / SME clusters."
+           data-kh="សហគ្រិនខ្មែរ បានជួយពង្រឹងវិស័យកម្មន្តសាលនៅកម្ពុជា ដោយផ្តោតសំខាន់ ទៅលើផលិតកម្មជំនួសការ នាំចូល និងការបង្កើត ចង្កោមឧស្សាហកម្ម/SMEs។">
+          Khmer Enterprise reinforces the manufacturing sector by mainly focusing on import substitution and industrial / SME clusters.
+        </p>
+        <div class="sector-tags-row">
+          <span class="stag stag-red" data-en="Import Substitution" data-kh="ជំនួសការនាំចូល">Import Substitution</span>
+          <span class="stag stag-red" data-en="SME Clusters" data-kh="ចង្កោម SMEs">SME Clusters</span>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="sector-card sector-svc" data-aos="fade-up" data-aos-delay="240">
+        <div class="sector-number">04</div>
+        <div class="sector-icon-wrap">
+          <img src="images/artwork_icon_3.png" alt="Services" class="sector-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="sector-icon-fallback" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+        </div>
+        <div class="sector-tag sector-tag-yellow" data-en="Services" data-kh="សេវាកម្ម">Services</div>
+        <h3 class="sector-title" data-en="Services" data-kh="សេវាកម្ម">Services</h3>
+        <p class="sector-desc"
+           data-en="Khmer Enterprise also targets to support the service sector, which includes tourism, hospitality, and logistics."
+           data-kh="សហគ្រិនខ្មែរ ក៏ផ្តោតលើការ គាំទ្រដល់វិស័យ សេវាកម្មផងដែរ ដែលក្នុងនោះ រួមមាន ទេសចរណ៍ បដិសណ្ឋារកិច្ច និងភស្តុភារ។">
+          Khmer Enterprise also targets to support the service sector, which includes tourism, hospitality, and logistics.
+        </p>
+        <div class="sector-tags-row">
+          <span class="stag stag-yellow" data-en="Tourism" data-kh="ទេសចរណ៍">Tourism</span>
+          <span class="stag stag-yellow" data-en="Hospitality" data-kh="បដិសណ្ឋារកិច្ច">Hospitality</span>
+          <span class="stag stag-yellow" data-en="Logistics" data-kh="ភស្តុភារ">Logistics</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══════════════════════════════ FOOTER — matches index.html exactly ══════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+
+    <!-- Brand + Tagline -->
+    <div class="footer-col footer-col-brand">
+      <div class="footer-brand">
+        <img src="images/logo_KE.png" alt="KE" class="footer-logo">
+        <div>
+          <div class="footer-name">Khmer Enterprise</div>
+          <div class="footer-tagline">Ecosystem Intelligence Platform</div>
+        </div>
+      </div>
+      <p class="footer-about" data-en="A data driven platform empowering Cambodian entrepreneurs with network analysis, GEI insights, and smart ecosystem matching." data-kh="ថ្នាលដែលដំណើរការដោយទិន្នន័យ ដើម្បីបង្កើនអំណាចដល់សហគ្រិនខ្មែរ ជាមួយការវិភាគបណ្តាញ GEI insights និងការផ្គូផ្គងប្រព័ន្ធ">A data driven platform empowering Cambodian entrepreneurs with network analysis, GEI insights, and smart ecosystem matching.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/ke.khmerenterprise" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://khmerenterprise.info" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Website">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <div class="footer-col-title" data-en="Contact Us" data-kh="ទំនាក់ទំនងយើង">Contact Us</div>
+      <ul class="footer-contact-list">
+        <li>
+          <span class="footer-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.12h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l1.95-1.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <a href="tel:023900855">023 900 855</a>
+        </li>
+        <li>
+          <span class="footer-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <a href="mailto:contact@khmerenterprise.info">contact@khmerenterprise.info</a>
+        </li>
+        <li>
+          <span class="footer-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          <a href="https://khmerenterprise.info" target="_blank" rel="noopener">khmerenterprise.info</a>
+        </li>
+        <li>
+          <span class="footer-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </span>
+          <a href="https://www.facebook.com/ke.khmerenterprise" target="_blank" rel="noopener">ke.khmerenterprise</a>
+        </li>
+        <li class="footer-address-item">
+          <span class="footer-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span class="footer-address" data-en="Business Development Center (BDC) Building, 9th Floor, OCIC Blvd., Sangkat Chroy Changvar, Khan Chroy Changvar, Phnom Penh, Cambodia" data-kh="អគារ Business Development Center (BDC), ជាន់ទី 9, ផ្លូវ OCIC, ភ្នំពេញ">Business Development Center (BDC) Building, 9th Floor, OCIC Blvd., Sangkat Chroy Changvar, Khan Chroy Changvar, Phnom Penh, Cambodia</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Map -->
+    <div class="footer-col footer-col-map">
+      <div class="footer-col-title" data-en="Find Us" data-kh="ស្វែងរកយើង">Find Us</div>
+      <div class="footer-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1706.6!2d104.926001!3d11.5958406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109538c22eb617d%3A0x4e20f616f2bf42e3!2sBusiness%20Development%20Center!5e0!3m2!1sen!2skh!4v1700000000000"
+          width="100%"
+          height="160"
+          style="border:0; border-radius:12px; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="KE Office Location"
+        ></iframe>
+        <a href="https://www.google.com/maps/place/Business+Development+Center/@11.5958406,104.926001,853m" target="_blank" rel="noopener" class="footer-map-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span data-en="Open in Google Maps" data-kh="បើកក្នុង Google Maps">Open in Google Maps</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-copy" data-en="©2026 Khmer Enterprise · All rights reserved" data-kh="©2026 សហគ្រិនខ្មែរ · រក្សាសិទ្ធិគ្រប់យ៉ាង">©2026 Khmer Enterprise · All rights reserved</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/aboutke.js"></script>
+</body>
+</html>

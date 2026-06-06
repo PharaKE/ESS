@@ -52,7 +52,8 @@ let translations = {};
 const langData = {
   en: {
     'nav.signin': 'Sign In',
-    
+    'nav.main': 'Main Page',
+    'nav.about': 'About KE',
     'hero.badge': 'Entrepreneur Support Platform · 2024–2026',
     'hero.title.line1': 'Empowering',
     'hero.title.line2': 'Cambodian',
@@ -165,7 +166,8 @@ const langData = {
   
   kh: {
     'nav.signin': 'ចូលគណនី',
-    
+    'nav.main': 'ទំព័រដើម',
+    'nav.about': 'អំពីសហគ្រិនខ្មែរ',
     'hero.badge': 'ថ្នាលគាំទ្រសហគ្រិនភាព · ២០២៤–២០២៦',
     'hero.title.line1': 'ការផ្តល់អតិភាព',
     'hero.title.line2': 'សម្រាប់សហគ្រិនភាព',
