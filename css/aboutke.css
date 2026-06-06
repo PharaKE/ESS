@@ -502,7 +502,7 @@ body { font-family:'Poppins',sans-serif; min-height:100vh; background:var(--bg);
   background:rgba(26,107,181,.10); color:var(--blue-dark);
 }
 .sector-tag-green  { background:rgba(26,155,95,.10); color:var(--green-dark); }
-.sector-red { background:rgba(220,38,38,.10); color:#b91c1c; }
+.sector-tag-red { background:rgba(220,38,38,.10); color:#b91c1c; }
 .sector-tag-yellow   { background:rgba(245,158,11,.10); color:#b45309; }
 
 .sector-title {
