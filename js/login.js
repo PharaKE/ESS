@@ -153,7 +153,7 @@ function updateLanguage(lang) {
   const featData = isKh ? [
     { title: 'ការវិភាគបណ្តាញទំនាក់ទំនង (SNA)', desc: 'គូសផែនទីទំនាក់ទំនងសហគ្រិនចំនួន ៣៩០+ នៅទូទាំងទីក្រុងធំៗចំនួន ៣' },
     { title: 'សន្ទស្សន៍សហគ្រិនភាពសកល​(GEI)', desc: 'តាមដានចំណាត់ថ្នាក់របស់កម្ពុជាលើសូចនាករសំខាន់ៗចំនួន ១៤ លើវិស័យសហគ្រិនភាព' },
-    { title: 'ជំនួយការសហគ្រិន AI', desc: 'ចម្លើយរបស់អ្នកជំនាញភ្លាមៗសម្រាប់ដំណើរសហគ្រិនភាពរបស់អ្នក' },
+    { title: 'ជំនួយការសហគ្រិន AI', desc: 'ចម្លើយរបស់អ្នកជំនាញ (AI) សម្រាប់ដំណើរសហគ្រិនភាពរបស់អ្នក' },
   ] : [
     { title: 'Social Network Analysis', desc: 'Map 390+ entrepreneur connections across 3 cities' },
     { title: 'Global Entrepreneurship Index', desc: 'Track Cambodia\'s ranking across 14 key indicators' },
