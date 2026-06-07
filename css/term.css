@@ -146,7 +146,7 @@ body {
   padding-bottom:0.1em;
 }
 .tos-hero-desc {
-  font-size:14px; color:var(--text-mid); line-height:1.8; margin-bottom:24px; max-width:580px; text-align:justify;
+  font-size:14px; color:var(--text-mid); line-height:1.8; margin-bottom:24px; max-width:580px; text-align:left;
 }
 .tos-meta {
   display:flex; align-items:center; gap:12px; flex-wrap:wrap;
@@ -224,7 +224,7 @@ body {
   display:flex; flex-direction:column; gap:16px;
 }
 .tos-body p {
-  font-size:14px; color:var(--text-mid); line-height:1.8; text-align:justify;
+  font-size:14px; color:var(--text-mid); line-height:1.8; text-align:left;
 }
 
 /* Highlight Boxes */
@@ -235,7 +235,7 @@ body {
   border-radius:10px; padding:16px 18px;
 }
 .tos-highlight-box svg { flex-shrink:0; margin-top:2px; color:var(--blue); stroke:var(--blue); }
-.tos-highlight-box p { font-size:13px; color:var(--text-mid); line-height:1.7; margin:0; text-align:justify; }
+.tos-highlight-box p { font-size:13px; color:var(--text-mid); line-height:1.7; margin:0; text-align:left; }
 .tos-highlight-green {
   background:rgba(26,155,95,0.06);
   border-color:rgba(26,155,95,0.16);
@@ -296,7 +296,7 @@ body {
 .tos-purpose-icon.purple { color:var(--purple); }
 .tos-purpose-icon.orange { color:var(--orange); }
 .tos-purpose-item strong { font-size:13px; font-weight:700; color:var(--text-dark); display:block; margin-bottom:5px; }
-.tos-purpose-item p { font-size:13px; color:var(--text-mid); line-height:1.7; margin:0; text-align:justify; }
+.tos-purpose-item p { font-size:13px; color:var(--text-mid); line-height:1.7; margin:0; text-align:left; }
 
 /* Security Grid */
 .tos-security-grid {
@@ -317,7 +317,7 @@ body {
 }
 .tos-security-icon svg { stroke:var(--green); }
 .tos-security-card h4 { font-size:14px; font-weight:700; color:var(--text-dark); margin-bottom:8px; }
-.tos-security-card p { font-size:13px; color:var(--text-mid); line-height:1.7; text-align:justify; }
+.tos-security-card p { font-size:13px; color:var(--text-mid); line-height:1.7; text-align:left; }
 
 /* Chatbot Flow */
 .tos-badge-notice {
@@ -379,7 +379,7 @@ body {
   border-radius:10px; padding:12px 14px;
   font-size:12.5px; color:var(--text-mid); line-height:1.6;
   box-shadow:0 1px 6px rgba(26,107,181,0.05);
-  text-align:justify;
+  text-align:left;
 }
 .tos-right-item svg { flex-shrink:0; margin-top:2px; stroke:var(--green); }
 

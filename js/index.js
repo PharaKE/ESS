@@ -166,7 +166,7 @@ const langData = {
   },
   
   kh: {
-    'nav.signin': 'ចូលគណនី',
+    'nav.signin': 'ចូលប្រើប្រាស់',
     'nav.main': 'ទំព័រដើម',
     'nav.about': 'អំពីសហគ្រិនខ្មែរ',
     'nav.terms': 'លក្ខខណ្ឌសេវាកម្ម',
