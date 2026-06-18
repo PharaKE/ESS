@@ -534,8 +534,6 @@ function setTablePillar(pillar) {
   document.querySelectorAll('.pillar-tab').forEach(b => b.classList.remove('active'));
   const activeTab = document.getElementById('ptab-' + pillar);
   if (activeTab) activeTab.classList.add('active');
-  const hdr = document.getElementById('main-table-score-header');
-  if (hdr) hdr.textContent = PILLAR_META[pillar]?.label || 'Score';
   if (GEI) renderMainTable(getFiltered());
 }
 
